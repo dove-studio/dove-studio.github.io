@@ -165,7 +165,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://192.168.0.100/posts/6ef3944f.html">
+    <link itemprop="mainEntityOfPage" href="https://192.168.0.100/posts/301421f9.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -179,7 +179,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/posts/6ef3944f.html" class="post-title-link" itemprop="url">Ubuntu关机时间过长</a>
+            <a href="/posts/301421f9.html" class="post-title-link" itemprop="url">STM32CubeMX+VSCode开发STM32</a>
         </h2>
 
         <div class="post-meta">
@@ -189,14 +189,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-05-29 14:15:38" itemprop="dateCreated datePublished" datetime="2019-05-29T14:15:38+08:00">2019-05-29</time>
+              <time title="创建时间：2020-04-05 21:40:00" itemprop="dateCreated datePublished" datetime="2020-04-05T21:40:00+08:00">2020-04-05</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-29 15:32:35" itemprop="dateModified" datetime="2020-03-29T15:32:35+08:00">2020-03-29</time>
+                <time title="修改时间：2020-04-25 20:14:08" itemprop="dateModified" datetime="2020-04-25T20:14:08+08:00">2020-04-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -204,7 +204,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                  <a href="/categories/ARM/" itemprop="url" rel="index"><span itemprop="name">ARM</span></a>
                 </span>
             </span>
 
@@ -214,14 +214,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
+              <span>5.9k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>5 分钟</span>
             </span>
 
         </div>
@@ -233,301 +233,37 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="问题表现"><a href="#问题表现" class="headerlink" title="问题表现"></a>问题表现</h3><p>在使用中发现 LinuxMint/Ubuntu 均存在关机（重启）时间过长的问题。经过搜索，此问题不光是 LinuxMint/Ubuntu 有，其他发行版如 Arch 也比较常见。</p>
-<p>严格来说，这个“问题”不算问题，大体原因是由于关机时，某个进程没有结束，systemd 在为此等待 90 秒。在用户看来就是关机时间过长（重启也是同样表现）。具体表现为，在点击关机后，一直显示 Splash 画面<br>这时，我们按键盘 Esc 键可以发现，原来是 systemd 在等待90秒。屏幕显示: A stop job is running for Session……</p>
-<p>经过一番搜索和研究找到了解决方案。目前分析的原因，可能是 systemd 与某些软件兼容性问题。有些国外网友采取 systemd 降级的方法，虽然有效，但是太麻烦。</p>
-<h3 id="安装watchdog"><a href="#安装watchdog" class="headerlink" title="安装watchdog"></a>安装watchdog</h3><p>1 安装 watchdog</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install watchdog</span><br></pre></td></tr></table></figure>
-<p>2 开启 watchdog 服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable watchdog.service</span><br></pre></td></tr></table></figure>
-<p>3 马上启用 watchdog 服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start watchdog.service</span><br></pre></td></tr></table></figure>
+          <p>整体流程为：STM32CubeMX生成工程模板，VSCode编辑和调试程序，Make启动编译，ARM GCC编译程序，OpenOCD连接调试器。</p>
+<h3 id="下载安装Java运行环境"><a href="#下载安装Java运行环境" class="headerlink" title="下载安装Java运行环境"></a>下载安装Java运行环境</h3><p><a href="https://www.java.com/zh_CN/download/" target="_blank" rel="noopener">适用于 Windows 的 32 位 Java</a><br><a href="https://www.java.com/zh_CN/download/windows-64bit.jsp" target="_blank" rel="noopener">适用于 Windows 的 64 位 Java</a></p>
+<h3 id="下载安装STM32CubeMX"><a href="#下载安装STM32CubeMX" class="headerlink" title="下载安装STM32CubeMX"></a>下载安装<a href="http://www.st.com/content/st_com/zh/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-configurators-and-code-generators/stm32cubemx.html" target="_blank" rel="noopener">STM32CubeMX</a></h3><h3 id="下载-OpenOCD-for-Windows"><a href="#下载-OpenOCD-for-Windows" class="headerlink" title="下载 OpenOCD for Windows"></a>下载 <a href="https://gnutoolchains.com/arm-eabi/openocd/" target="_blank" rel="noopener">OpenOCD for Windows</a></h3><p>下载后的文件不是安装包，把程序文件夹放入自己的软件安装目录下，将软件的bin文件夹路径加入用户环境变量PATH中。 如：<br>    C:\ARM\OpenOCD\bin<br>    # 运行以下命令验证<br>    openocd -v</p>
+<h3 id="下载安装-arm-none-eabi-gcc"><a href="#下载安装-arm-none-eabi-gcc" class="headerlink" title="下载安装 arm-none-eabi-gcc"></a>下载安装 <a href="https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads" target="_blank" rel="noopener">arm-none-eabi-gcc</a></h3><p>正常安装，安装后需要将软件的安装目录下的bin文件夹设置进入环境变量PATH中。 如：<br>    C:\ARM\gcc-arm-none-eabi\9 2019-q4-major\bin<br>    # 运行以下命令验证<br>    arm-none-eabi-gcc -v</p>
+<h3 id="下载-make"><a href="#下载-make" class="headerlink" title="下载 make"></a>下载 <a href="http://gnuwin32.sourceforge.net/packages/make.htm" target="_blank" rel="noopener">make</a></h3><p>下载文件选择Complete package, except sources。将bin文件夹设置进入环境变量PATH中。 如：<br>    C:\ARM\GnuWin32\bin<br>    # 运行以下命令验证<br>    make -v</p>
+<h3 id="VSCode安装C-C-、ARM、Cortex-Debug、Cortex-Debug-Device-Support-Pack-STM32F1插件"><a href="#VSCode安装C-C-、ARM、Cortex-Debug、Cortex-Debug-Device-Support-Pack-STM32F1插件" class="headerlink" title="VSCode安装C/C++、ARM、Cortex-Debug、Cortex-Debug: Device Support Pack - STM32F1插件"></a>VSCode安装C/C++、ARM、Cortex-Debug、Cortex-Debug: Device Support Pack - STM32F1插件</h3><p>另外，还可以用Git Bash替代cmd，点击 文件 -&gt; 首选项 -&gt; 设置，来打开 VS Code 的配置文件（ VS Code 采用 json 格式的文件进行配置，没有图形界面），在文件中加入如下配置，尤其注意最后两项执行程序的路径要设到自己的路径下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;editor.detectIndentation&quot;: false,</span><br><span class="line">    &quot;git.ignoreMissingGitWarning&quot;: true,</span><br><span class="line">    &quot;files.autoGuessEncoding&quot;: true,</span><br><span class="line">    &quot;editor.formatOnSave&quot;: true,</span><br><span class="line">    &quot;editor.formatOnPaste&quot;: true,</span><br><span class="line">    &quot;editor.formatOnType&quot;: true,</span><br><span class="line">    &quot;terminal.integrated.shell.windows&quot;: &quot;C:\\Program Files\\Git\\bin\\bash.exe&quot;,</span><br><span class="line">    &quot;terminal.external.windowsExec&quot;: &quot;C:\\Program Files\\Git\\bin\\bash.exe&quot;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后我们我们重启程序加载配置，而后点击 查看 -&gt; 终端 可以看到 VS Code 的内部终端已经改变为 MINGW64 的终端。</p>
+<h3 id="第一个工程"><a href="#第一个工程" class="headerlink" title="第一个工程"></a>第一个工程</h3><p>使用STM32CubeMX生成一个Makefile工程，用VSCode添加工程文件夹到工作区，写个Led闪烁的程序。打开终端，终端输入make -j4（-j4指定4线程编译，提高速度）</p>
+<p>然后创建.vscode文件夹，增加以下3个配置文件</p>
+<h4 id="c-cpp-properties-json"><a href="#c-cpp-properties-json" class="headerlink" title="c_cpp_properties.json"></a>c_cpp_properties.json</h4><p>用于设定工程的 Include 路径，宏定义及搜索浏览路径，其中需要设定三个参数：</p>
+<p>1 includePath 提供.h的搜索目录<br>2 defines 编译时在指令中加入的宏定义<br>3 path 使用右键或ctrl追踪函数实现时搜索的目录</p>
+<p>实际上我们只需要配置launch.json文件就可以实现全部的调试功能，但是由于vscode不会自动识别makefile中的配置参数，所以如果想要使其代码索引，智能感知运行正确的话，就需要我们单独设置其中的c_cpp_properties.json文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [    </span><br><span class="line">        &#123;    </span><br><span class="line">            &quot;name&quot;: &quot;Win32&quot;,    </span><br><span class="line">            &quot;includePath&quot;: [    </span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;&#x2F;**&quot;,    </span><br><span class="line">                &quot;C:&#x2F;ARM&#x2F;gcc-arm-none-eabi&#x2F;9 2019-q4-major&#x2F;arm-none-eabi&#x2F;include&quot;,    </span><br><span class="line">                &quot;C:&#x2F;ARM&#x2F;gcc-arm-none-eabi&#x2F;9 2019-q4-major&#x2F;arm-none-eabi&#x2F;include&#x2F;c++&#x2F;9.2.1&quot;,    </span><br><span class="line">                &quot;C:&#x2F;ARM&#x2F;gcc-arm-none-eabi&#x2F;9 2019-q4-major&#x2F;arm-none-eabi&#x2F;include&#x2F;c++&#x2F;9.2.1&#x2F;backward&quot;,    </span><br><span class="line">                &quot;C:&#x2F;ARM&#x2F;gcc-arm-none-eabi&#x2F;9 2019-q4-major&#x2F;lib&#x2F;gcc&#x2F;arm-none-eabi&#x2F;9.2.1&#x2F;include&quot;,    </span><br><span class="line">                &quot;C:&#x2F;ARM&#x2F;gcc-arm-none-eabi&#x2F;9 2019-q4-major&#x2F;lib&#x2F;gcc&#x2F;arm-none-eabi&#x2F;9.2.1&#x2F;include-fixed&quot;,    </span><br><span class="line">                &quot;Drivers&#x2F;CMSIS&#x2F;Include&quot;,    </span><br><span class="line">                &quot;Drivers&#x2F;CMSIS&#x2F;Device&#x2F;ST&#x2F;STM32F1xx&#x2F;Include&quot;,    </span><br><span class="line">                &quot;Drivers&#x2F;STM32F1xx_HAL_Driver&#x2F;Inc&quot;,    </span><br><span class="line">                &quot;Drivers&#x2F;STM32F1xx_HAL_Driver&#x2F;Inc&#x2F;Legacy&quot;,    </span><br><span class="line">                &quot;Drivers&#x2F;STM32F1xx_HAL_Driver&#x2F;Src&quot;,    </span><br><span class="line">                &quot;Middlewares&#x2F;ST&#x2F;STM32_USB_Device_Library&#x2F;Class&#x2F;CDC&#x2F;Inc&quot;,    </span><br><span class="line">                &quot;Middlewares&#x2F;ST&#x2F;STM32_USB_Device_Library&#x2F;Class&#x2F;CDC&#x2F;Src&quot;,    </span><br><span class="line">                &quot;Middlewares&#x2F;ST&#x2F;STM32_USB_Device_Library&#x2F;Core&#x2F;Inc&quot;,    </span><br><span class="line">                &quot;Middlewares&#x2F;ST&#x2F;STM32_USB_Device_Library&#x2F;Core&#x2F;Src&quot;,   </span><br><span class="line">                &quot;Inc&quot;,    </span><br><span class="line">                &quot;Src&quot;    </span><br><span class="line">            ], </span><br><span class="line">            &quot;defines&quot;: [    </span><br><span class="line">                &quot;_DEBUG&quot;,    </span><br><span class="line">                &quot;UNICODE&quot;,    </span><br><span class="line">                &quot;_UNICODE&quot;,    </span><br><span class="line">                &quot;STM32F103xB&quot;    </span><br><span class="line">            ],    </span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;msvc-x64&quot;    </span><br><span class="line">        &#125;    </span><br><span class="line">    ],    </span><br><span class="line">    &quot;version&quot;: 4    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="修改超时等待时间"><a href="#修改超时等待时间" class="headerlink" title="修改超时等待时间"></a>修改超时等待时间</h3><p>编辑配置文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit &#x2F;etc&#x2F;systemd&#x2F;system.conf</span><br></pre></td></tr></table></figure>
-<p>把里面的DefaultTimeoutStopSec的值改为3s，然后载入新的配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br></pre></td></tr></table></figure>
-
-<h3 id="修改开机等待时间及画面"><a href="#修改开机等待时间及画面" class="headerlink" title="修改开机等待时间及画面"></a>修改开机等待时间及画面</h3><p>1 编辑配置文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit &#x2F;etc&#x2F;default&#x2F;grub</span><br></pre></td></tr></table></figure>
-<p>2 修改如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GRUB_TIMEOUT&#x3D;1</span><br><span class="line">GRUB_CMDLINE_LINUX_DEFAULT&#x3D;&quot;&quot;</span><br></pre></td></tr></table></figure>
-<p>3 更新配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-grub</span><br></pre></td></tr></table></figure>
-
-<h3 id="MYSQL关机超时问题"><a href="#MYSQL关机超时问题" class="headerlink" title="MYSQL关机超时问题"></a>MYSQL关机超时问题</h3><p>关机时系统卡住，停在Logo画面，ESC查看控制台有输出 A stop job is running for MySQL Community Server (*min *s / 10min) ，要等待计时结束才能自动关闭。<br>解决步骤：<br>1 使MySQL用户具有 /etc/mysql/debian.cnf 的读权限：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chgrp mysql &#x2F;etc&#x2F;mysql&#x2F;debian.cnf </span><br><span class="line">sudo chmod 640 &#x2F;etc&#x2F;mysql&#x2F;debian.cnf</span><br></pre></td></tr></table></figure>
-<p>2 复制一份 mysql.service 文件，并修改其访问权限：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo cp &#x2F;lib&#x2F;systemd&#x2F;system&#x2F;mysql.service &#x2F;etc&#x2F;systemd&#x2F;system&#x2F; </span><br><span class="line">sudo chmod 755 &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;mysql.service</span><br></pre></td></tr></table></figure>
-<p>3 编辑新复制的文件，在其中添加MySQL服务停止条件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;mysql.service</span><br></pre></td></tr></table></figure>
-<p>4 在文件的Service中添加一行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ExecStop&#x3D;&#x2F;usr&#x2F;bin&#x2F;mysqladmin --defaults-file&#x3D;&#x2F;etc&#x2F;mysql&#x2F;debian.cnf shutdown</span><br></pre></td></tr></table></figure>
-<p>5 载入新的配置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br></pre></td></tr></table></figure>
-
-<h4 id="其他几种解决办法"><a href="#其他几种解决办法" class="headerlink" title="其他几种解决办法"></a>其他几种解决办法</h4><p>1 设置MySQL超时：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;multi-user.target.wants&#x2F;mysql.service</span><br></pre></td></tr></table></figure>
-<p>修改TimeoutSec=3 </p>
-<p>2 关机前手动停止MySQL服务：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysql stop</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://192.168.0.100/posts/b0b4f55e.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Will">
-      <meta itemprop="description" content="让距离成为距离的遐想，让彼此成为彼此的风景">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dove Studio">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/b0b4f55e.html" class="post-title-link" itemprop="url">Ubuntu添加新分区并挂载home</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-05-22 15:15:38" itemprop="dateCreated datePublished" datetime="2019-05-22T15:15:38+08:00">2019-05-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-29 15:32:35" itemprop="dateModified" datetime="2020-03-29T15:32:35+08:00">2020-03-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>847</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>由于一开始安装只设置了/和swap分区，很快就发现空间不足，需要扩展home分区</p>
-<h3 id="磁盘准备"><a href="#磁盘准备" class="headerlink" title="磁盘准备"></a>磁盘准备</h3><p>查看已有的磁盘，可以看到sdb还没有分区。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo fdisk -l</span><br></pre></td></tr></table></figure>
-<p>进入sdb进行分区,输入m可以查看帮助信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo fdisk &#x2F;dev&#x2F;sdb</span><br></pre></td></tr></table></figure>
-<p>输入n新建分区，输入分区号1，然后输入大小我输入的是sector扇区的开始和结束位置，也可以输入以K M G T P为单位的大小。<br>然后查看要创建的分区表，这时还没有创建，按w保存退出后才成功。<br>可以再次执行 sudo fdisk -l 查看是否创建。</p>
-<p>然后将新分区格式化为ext4</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkfs -t ext4 &#x2F;dev&#x2F;sdb6</span><br></pre></td></tr></table></figure>
-<h3 id="为-home挂载新分区"><a href="#为-home挂载新分区" class="headerlink" title="为/home挂载新分区"></a>为/home挂载新分区</h3><p>1 创建临时目录，用来临时挂载新分区</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir &#x2F;mnt&#x2F;home</span><br></pre></td></tr></table></figure>
-<p>2 将新分区挂载到新文件夹</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount &#x2F;dev&#x2F;sdb6 &#x2F;mnt&#x2F;home</span><br></pre></td></tr></table></figure>
-<p>3 将/home目录下的文件拷贝到新分区</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;home</span><br><span class="line">sudo cp -ax * &#x2F;mnt&#x2F;home</span><br></pre></td></tr></table></figure>
-<p>拷贝时间也许较长，耐心等待。</p>
-<p>4 重命名原/home目录，并新建一个新的空/home目录，并将新分区挂载过来</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;</span><br><span class="line">sudo mv &#x2F;home &#x2F;home.old</span><br><span class="line">sudo mkdir &#x2F;home</span><br><span class="line">sudo mount &#x2F;dev&#x2F;sdb6 &#x2F;home</span><br></pre></td></tr></table></figure>
-<p>5 查看uuid，找到新分区id</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo blkid</span><br></pre></td></tr></table></figure>
-<p>6 找到新分区的uuid，加入/etc/fstab</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit &#x2F;etc&#x2F;fstab</span><br></pre></td></tr></table></figure>
-<p>7 加入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UID&#x3D;78ebdca7-7632-426a-93c5-fd95be0954e2 &#x2F;home           ext4    defaults          0       2</span><br></pre></td></tr></table></figure>
-<p>8 最后修改权限问题，进入新挂载的/home 查看是否都是对应文件夹对应用户的权限，不是进行更改。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R will &#x2F;will</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://192.168.0.100/posts/743468b.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Will">
-      <meta itemprop="description" content="让距离成为距离的遐想，让彼此成为彼此的风景">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Dove Studio">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/743468b.html" class="post-title-link" itemprop="url">基于Ubuntu的STM32调试环境搭建</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-05-12 23:37:42" itemprop="dateCreated datePublished" datetime="2019-05-12T23:37:42+08:00">2019-05-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-29 15:32:35" itemprop="dateModified" datetime="2020-03-29T15:32:35+08:00">2020-03-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/STM32/" itemprop="url" rel="index"><span itemprop="name">STM32</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="安装gcc-arm-none-eabi"><a href="#安装gcc-arm-none-eabi" class="headerlink" title="安装gcc-arm-none-eabi"></a>安装gcc-arm-none-eabi</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gcc-arm-none-eabi</span><br></pre></td></tr></table></figure>
-<p>上述安装没有gdb，使用vscode调试需要使用用以下方式进行安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:team-gcc-arm-embedded&#x2F;ppa</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install gcc-arm-embedded</span><br></pre></td></tr></table></figure>
-
-<h3 id="安装STM32CubeMX"><a href="#安装STM32CubeMX" class="headerlink" title="安装STM32CubeMX"></a>安装STM32CubeMX</h3><p>1 STM32CubeMX是32-bit程序，如果是64-bit系统，需要安装32-bit compliant packages such as ia32-libs.<br>在Ubuntu18.04中已经没有ia32-libs，使用lib32ncurses5 lib32z1替代</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install lib32ncurses5 lib32z1</span><br></pre></td></tr></table></figure>
-
-<p>2 STM32CubeMX是java程序，需要JRE支持，可以安装Oracle JDK或者OpenJDK<br><a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">Oracle Java</a></p>
-<p>OpenJDK is a free and open-source implementation of the Java Platform, Standard Edition licensed under the GNU General Public License version </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install default-jre</span><br><span class="line">sudo apt install openjdk-11-jre-headless</span><br><span class="line">sudo apt install openjdk-8-jre-headless</span><br></pre></td></tr></table></figure>
-
-<p>Oracle JDK</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:linuxuprising&#x2F;java</span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install oracle-java11-set-default</span><br></pre></td></tr></table></figure>
-
-<p>测试是否安装成功</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java --version</span><br></pre></td></tr></table></figure>
-
-<p>3 进入软件目录开始安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo .&#x2F;SetupSTM32CubeMX-5.0.0.linux</span><br></pre></td></tr></table></figure>
-
-<h3 id="调试环境准备"><a href="#调试环境准备" class="headerlink" title="调试环境准备"></a>调试环境准备</h3><h4 id="安装openocd"><a href="#安装openocd" class="headerlink" title="安装openocd"></a>安装openocd</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install openocd</span><br></pre></td></tr></table></figure>
-
-<h4 id="如果使用stlink，安装stlink驱动"><a href="#如果使用stlink，安装stlink驱动" class="headerlink" title="如果使用stlink，安装stlink驱动"></a>如果使用stlink，安装stlink驱动</h4><p>1 准备stlink驱动安装环境</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libusb-dev</span><br><span class="line">sudo apt-get install libusb-1.0</span><br><span class="line">sudo apt-get install cmake</span><br><span class="line">sudo apt-get install libgtk-3-dev</span><br></pre></td></tr></table></figure>
-
-<p>2 下载源码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;texane&#x2F;stlink.git</span><br><span class="line">cd stlink</span><br></pre></td></tr></table></figure>
-
-<p>3 编译及安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">make clean</span><br><span class="line">make release</span><br><span class="line">make debug</span><br><span class="line">cd build</span><br><span class="line">cmake -DCMAKE_BUILD_TYPE&#x3D;Debug ..</span><br><span class="line">make</span><br><span class="line">cd Release</span><br><span class="line">sudo make install</span><br><span class="line">ldconfig</span><br></pre></td></tr></table></figure>
-
-<h4 id="如果使用Jlink，安装Jlink驱动"><a href="#如果使用Jlink，安装Jlink驱动" class="headerlink" title="如果使用Jlink，安装Jlink驱动"></a>如果使用Jlink，安装Jlink驱动</h4><p>1 首先安装readline</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libreadline6-dev</span><br></pre></td></tr></table></figure>
-<p>2 去<a href="https://www.segger.com/downloads/jlink/" target="_blank" rel="noopener">jlink</a>下载安装程序，然后安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i JLink_Linux_V644h_x86_64.deb</span><br></pre></td></tr></table></figure>
-
-<h4 id="配置udev"><a href="#配置udev" class="headerlink" title="配置udev"></a>配置udev</h4><p>1 生成<code>49-link.rules</code>文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit &#x2F;etc&#x2F;udev&#x2F;rules.d&#x2F;49-link.rules</span><br></pre></td></tr></table></figure>
-<p>输入以下内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">SUBSYSTEMS&#x3D;&#x3D;&quot;usb&quot;, ATTRS&#123;idVendor&#125;&#x3D;&#x3D;&quot;1366&quot;, ATTRS&#123;idProduct&#125;&#x3D;&#x3D;&quot;0102&quot;, \</span><br><span class="line">    MODE:&#x3D;&quot;0666&quot;, \</span><br><span class="line">    SYMLINK+&#x3D;&quot;jlink_%n&quot;</span><br><span class="line"> </span><br><span class="line">SUBSYSTEMS&#x3D;&#x3D;&quot;usb&quot;, ATTRS&#123;idVendor&#125;&#x3D;&#x3D;&quot;0483&quot;, ATTRS&#123;idProduct&#125;&#x3D;&#x3D;&quot;3744&quot;, \</span><br><span class="line">    MODE:&#x3D;&quot;0666&quot;, \</span><br><span class="line">    SYMLINK+&#x3D;&quot;stlinkv1_%n&quot;</span><br><span class="line"> </span><br><span class="line">SUBSYSTEMS&#x3D;&#x3D;&quot;usb&quot;, ATTRS&#123;idVendor&#125;&#x3D;&#x3D;&quot;0483&quot;, ATTRS&#123;idProduct&#125;&#x3D;&#x3D;&quot;374b&quot;, \</span><br><span class="line">    MODE:&#x3D;&quot;0666&quot;, \</span><br><span class="line">    SYMLINK+&#x3D;&quot;stlinkv2-1_%n&quot;</span><br><span class="line"> </span><br><span class="line">SUBSYSTEMS&#x3D;&#x3D;&quot;usb&quot;, ATTRS&#123;idVendor&#125;&#x3D;&#x3D;&quot;0483&quot;, ATTRS&#123;idProduct&#125;&#x3D;&#x3D;&quot;3748&quot;, \</span><br><span class="line">    MODE:&#x3D;&quot;0666&quot;, \</span><br><span class="line">    SYMLINK+&#x3D;&quot;stlinkv2_%n&quot;</span><br></pre></td></tr></table></figure>
-
-<p>2 使udev生效</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo &#x2F;etc&#x2F;init.d&#x2F;udev restart</span><br></pre></td></tr></table></figure>
-
-<h3 id="下载程序"><a href="#下载程序" class="headerlink" title="下载程序"></a>下载程序</h3><h4 id="使用stlink"><a href="#使用stlink" class="headerlink" title="使用stlink"></a>使用stlink</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openocd -f interface&#x2F;stlink-v2.cfg -f target&#x2F;stm32f1x.cfg 2&gt;&#x2F;dev&#x2F;null &amp;</span><br></pre></td></tr></table></figure>
-<h4 id="使用Jlink"><a href="#使用Jlink" class="headerlink" title="使用Jlink"></a>使用Jlink</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openocd -f interface&#x2F;jlink.cfg -f target&#x2F;stm32f1x.cfg 2&gt;&#x2F;dev&#x2F;null &amp;</span><br></pre></td></tr></table></figure>
-<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">telnet localhost 4444</span><br><span class="line">halt</span><br><span class="line">flash write_image erase *.hex</span><br><span class="line">reset</span><br></pre></td></tr></table></figure>
-<p>下载过程有时候会提示失败，需要reset后再下载</p>
-<h3 id="配置vscode"><a href="#配置vscode" class="headerlink" title="配置vscode"></a>配置vscode</h3><h4 id="安装相关插件"><a href="#安装相关插件" class="headerlink" title="安装相关插件"></a>安装相关插件</h4><ul>
-<li>安装插件 ARM；</li>
-<li>安装插件 Cortex-Debug;</li>
-<li>安装插件 C/C++; 必要插件，否则无法调试。</li>
-<li>安装插件 C/C++ Clang Comamnd Adapter; 用来补全和诊断，需要同时安装Clang，参考官方文档。</li>
-<li>安装插件 Uncrustify; 用来格式化代码， shift+alt+f，非常方便。缺点是代码中有Unicode可能会导致乱码，然后配置文件有点多。</li>
-<li>安装插件 Bracket Pair Colorizer; 不同颜色高亮显示匹配括号，爱护视力必备。</li>
-</ul>
-<h4 id="编辑launch-json"><a href="#编辑launch-json" class="headerlink" title="编辑launch.json"></a>编辑launch.json</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Cortex Debug&quot;,</span><br><span class="line">            &quot;cwd&quot;: &quot;$&#123;workspaceRoot&#125;&quot;,</span><br><span class="line">            &quot;executable&quot;: &quot;.&#x2F;build&#x2F;*.elf&quot;,</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,</span><br><span class="line">            &quot;type&quot;: &quot;cortex-debug&quot;,</span><br><span class="line">            &quot;servertype&quot;: &quot;openocd&quot;,</span><br><span class="line">            &quot;BMPGDBSerialPort&quot;: &quot;&#x2F;dev&#x2F;ttyACM0&quot;,</span><br><span class="line">            &quot;runToMain&quot;: true,</span><br><span class="line">            &quot;configFiles&quot;: [</span><br><span class="line">                &quot;interface&#x2F;jlink.cfg&quot;,</span><br><span class="line">                &quot;target&#x2F;stm32f1x.cfg&quot;</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="安装串口软件"><a href="#安装串口软件" class="headerlink" title="安装串口软件"></a>安装串口软件</h3><p>推荐cutecom，界面化，支持HEX收发</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install cutecom</span><br></pre></td></tr></table></figure>
+<h4 id="tasks-json"><a href="#tasks-json" class="headerlink" title="tasks.json"></a>tasks.json</h4><p>配置build命令，build命令用来生成可执行文件（.elf、.hex）<br>配置clean命令，clean命令用来清除build过程的中间文件以及build目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;version&quot;: &quot;2.0.0&quot;,</span><br><span class="line">    &quot;tasks&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;label&quot;: &quot;clean&quot;,</span><br><span class="line">            &quot;type&quot;: &quot;shell&quot;,</span><br><span class="line">            &quot;command&quot;: &quot;make clean&quot;,</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;label&quot;: &quot;build&quot;,</span><br><span class="line">            &quot;type&quot;: &quot;shell&quot;,</span><br><span class="line">            &quot;command&quot;: &quot;make -j4&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>点击终端运行任务，建立task.json之后会看到两个task，build和clean</p>
+<h4 id="launch-json"><a href="#launch-json" class="headerlink" title="launch.json"></a>launch.json</h4><p>cwd ： current working directory for finding dependencies and other files<br>request： the request type of this launch configuration.<br>executable：被调试文件的路径<br>svdFile：根据芯片的型号在插件目录下进行选择<br>servertype：调试类型<br>configFiles：openocd的interface和target目录下进行选择<br>preLaunchTask：运行调试之后先运行task命令生成elf文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Cortex Debug&quot;,</span><br><span class="line">            &quot;cwd&quot;: &quot;$&#123;workspaceRoot&#125;&quot;,</span><br><span class="line">            &quot;executable&quot;: &quot;$&#123;workspaceFolder&#125;&#x2F;build&#x2F;$&#123;workspaceRootFolderName&#125;.elf&quot;,</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,</span><br><span class="line">            &quot;type&quot;: &quot;cortex-debug&quot;,</span><br><span class="line">            &quot;svdFile&quot;: &quot;C:&#x2F;Users&#x2F;will&#x2F;.vscode&#x2F;extensions&#x2F;marus25.cortex-debug-dp-stm32f1-1.0.0&#x2F;data&#x2F;STM32F103xx.svd&quot;,</span><br><span class="line">            &quot;servertype&quot;: &quot;openocd&quot;,</span><br><span class="line">            &quot;configFiles&quot;: [</span><br><span class="line">                &quot;interface&#x2F;stlink-v2.cfg&quot;,</span><br><span class="line">                &quot;target&#x2F;stm32f1x_stlink.cfg&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;preLaunchTask&quot;: &quot;build&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意我用的调试器为stlink-v2，器件为stm32f1x，需要根据调试器和器件做适当的修改</p>
+<h3 id="启动调试"><a href="#启动调试" class="headerlink" title="启动调试"></a>启动调试</h3><p>直接F5启动调试即可，启动调试时会自动编译并打开OpenOCD服务。设置断点，继续F5调试。</p>
+<p>先停止程序再退出调试，否则会影响第二次调试。</p>
+<p>添加需编译的文件：在Makefile文件里，c文件在C_SOURCES下照着其它文件的路径格式写，h文件在C_INCLUDES下照着其它文件的路径格式写。</p>
+<p>去除需编译的文件：把Makefile文件里的头文件和源文件路径删掉，再把生成的build文件夹删掉，再重新编译。</p>
+<h3 id="使Makefile支持C-（未验证）："><a href="#使Makefile支持C-（未验证）：" class="headerlink" title="使Makefile支持C++（未验证）："></a>使Makefile支持C++（<strong>未验证</strong>）：</h3><p>Makefile文件更改如下：</p>
+<p>增加：<br>CXX_SOURCES =  <br>Src/File.cpp #所有的cpp文件都写在这<br>CXX = $(GCC_PATH)/$(PREFIX)g++和CXX = $(PREFIX)g++<br>CXXFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections<br>CXXFLAGS += -g -gdwarf-2<br>CXXFLAGS += -MMD -MP -MF”$(@:%.o=%.d)”</p>
+<p>修改：LDFLAGS = $(MCU) -specs=nano.specs -specs=nosys.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,–cref -Wl,–gc-sections #在-specs=nano.specs后面加-specs=nosys.specs。删除-specs=nano.specs可使用异常捕获等语法，但会使RAM增加约2KB，ROM增加约54KB</p>
+<p>增加：<br>OBJECTS += $(addprefix $(BUILD_DIR)/,$(notdir $(CXX_SOURCES:.cpp=.o)))<br>vpath %.cpp $(sort $(dir $(CXX_SOURCES)))<br>$(BUILD_DIR)/%.o: %.cpp Makefile | $(BUILD_DIR)<br>$(CXX) -c $(CXXFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(&lt;:.cpp=.lst)) $&lt; -o $@</p>
+<p>修改：<br>$(BUILD_DIR)/$(TARGET).elf: $(OBJECTS) Makefile<br>$(CXX) $(OBJECTS) $(LDFLAGS) -o $@ #用CXX替换原来的CC<br>$(SZ) $@</p>
+<p>main.c不用改成main.cpp，只需把main.c要用的cpp文件里的函数改成C接口，在main.c里用extern void F(void);声明函数后即可使用。这些在cpp文件里被设为C接口的函数不能在cpp文件的h文件里直接声明。</p>
 
       
     </div>
@@ -547,7 +283,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://192.168.0.100/posts/6b81465a.html">
+    <link itemprop="mainEntityOfPage" href="https://192.168.0.100/posts/8ecaa049.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -561,7 +297,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/posts/6b81465a.html" class="post-title-link" itemprop="url">Ubuntu+LAMP服务器搭建</a>
+            <a href="/posts/8ecaa049.html" class="post-title-link" itemprop="url">QNAP内网穿透之frpc</a>
         </h2>
 
         <div class="post-meta">
@@ -571,14 +307,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-05-12 00:29:12" itemprop="dateCreated datePublished" datetime="2019-05-12T00:29:12+08:00">2019-05-12</time>
+              <time title="创建时间：2020-04-05 13:33:00" itemprop="dateCreated datePublished" datetime="2020-04-05T13:33:00+08:00">2020-04-05</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-29 15:32:35" itemprop="dateModified" datetime="2020-03-29T15:32:35+08:00">2020-03-29</time>
+                <time title="修改时间：2020-04-25 20:17:24" itemprop="dateModified" datetime="2020-04-25T20:17:24+08:00">2020-04-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -588,6 +324,10 @@
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a>
                 </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/NAS/" itemprop="url" rel="index"><span itemprop="name">NAS</span></a>
+                </span>
             </span>
 
           <br>
@@ -596,7 +336,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>908</span>
+              <span>1.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -615,31 +355,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="安装Apache"><a href="#安装Apache" class="headerlink" title="安装Apache"></a>安装Apache</h4><p>1 安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install apache2</span><br></pre></td></tr></table></figure>
-<p>安装完成后打开<a href="http://localhost" target="_blank" rel="noopener">http://localhost</a> 如果能访问说明服务器已经能够运行</p>
-<p>2 设置index.php优先</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /etc/apache2/mods-enabled/dir.conf</span><br></pre></td></tr></table></figure>
-<p>更改为首先列出index.php，修改配置文件以后，我们需要重新启动一下Apache服务器。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart apache2</span><br></pre></td></tr></table></figure>
-<p>3 为了方便后续使用，修改<code>/var/www/html</code>的权限</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 777 /var/www/html</span><br></pre></td></tr></table></figure>
+          <h3 id="frps服务器"><a href="#frps服务器" class="headerlink" title="frps服务器"></a>frps服务器</h3><p>找到外网服务器，有公网IP可以自己搭建，我使用 <a href="https://waiwang.men/" target="_blank" rel="noopener">https://waiwang.men/</a> 提供的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">地址:aliyunsz.waiwang.men</span><br><span class="line">特权端口:6666</span><br><span class="line">Xtcp端口:6667</span><br><span class="line">监控端口:7777</span><br><span class="line">特权密码:waiwang.men</span><br><span class="line">监控账户:waiwang.men</span><br><span class="line">监控密码:waiwang.men</span><br><span class="line">免费域名:*.aliyunsz.waiwang.men</span><br><span class="line">单用户映射数:5</span><br><span class="line">服务端版本:0.29.1</span><br><span class="line">服务器宽带:独享5M</span><br><span class="line">服务器流量:单向1T</span><br><span class="line">支持: 88,8443,35000-50000端口穿透</span><br><span class="line">服务器定时重启:每周1凌晨3点</span><br><span class="line">服务器由WaiWang.Men官方提供</span><br></pre></td></tr></table></figure>
 
-<h4 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h4><p>1 安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mysql-server</span><br></pre></td></tr></table></figure>
-<p>2 修改mysql root密码</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /etc/mysql/debian.cnf</span><br></pre></td></tr></table></figure>
-<p>复制debian-sys-maint的密码，等一会登陆的时候粘贴</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql -u debian-sys-maint -p</span><br><span class="line"></span><br><span class="line">use mysql;</span><br><span class="line">update user <span class="built_in">set</span> authentication_string=password(<span class="string">'Pwd@1234'</span>) <span class="built_in">where</span> user=<span class="string">'root'</span>;</span><br><span class="line">update user <span class="built_in">set</span> plugin=<span class="string">"mysql_native_password"</span>; </span><br><span class="line">flush privileges;</span><br><span class="line">quit;</span><br></pre></td></tr></table></figure>
-
-<h4 id="安装PHP"><a href="#安装PHP" class="headerlink" title="安装PHP"></a>安装PHP</h4><p>1 安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install php</span><br></pre></td></tr></table></figure>
-<p>2 打开mysqli扩展</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install php-mysql</span><br><span class="line">sudo gedit /etc/php/7.2/apache2/php.ini</span><br></pre></td></tr></table></figure>
-<p>去掉注释：extension=mysqli，保存后重启Apache即可<br>3 在<code>/var/www/html</code>下建立<code>index.php</code>，内容如下：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">phpinfo();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>之后再打开<a href="http://localhost" target="_blank" rel="noopener">http://localhost</a> 可以查看PHP配置情况</p>
-<h4 id="安装phpMyAdmin"><a href="#安装phpMyAdmin" class="headerlink" title="安装phpMyAdmin"></a>安装phpMyAdmin</h4><p>去<a href="https://www.phpmyadmin.net/downloads/" target="_blank" rel="noopener">https://www.phpmyadmin.net/downloads/</a> 下载最新版程序并解压到<code>/var/www/html</code>目录下<br>然后登陆<a href="http://localhost/phpmyadmin" target="_blank" rel="noopener">http://localhost/phpmyadmin</a> 进入数据库管理网站</p>
+<h3 id="安装frpc"><a href="#安装frpc" class="headerlink" title="安装frpc"></a>安装frpc</h3><p>container中搜索frpc，我选择leonismoe/frpc:v0.29.1，注意frpc版本要与服务器版本一致<br>1 看到执行的命令为：/frpc -c /etc/frpc.ini<br>2 设置成自动启动，CPU和内存设置为最低<br>3 点开高级设置，网络模式选择Host<br>4 创建frpc.ini存放路径，我使用得是：/share/Document/frpc<br>5 设置共享文件夹/etc为：/share/Document/frpc<br>6 点击创建完成frpc的准备</p>
+<h3 id="配置frpc-ini"><a href="#配置frpc-ini" class="headerlink" title="配置frpc.ini"></a>配置frpc.ini</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">server_addr &#x3D; aliyunsz.waiwang.men</span><br><span class="line">server_port &#x3D; 6666</span><br><span class="line">token &#x3D; waiwang.men</span><br><span class="line"></span><br><span class="line">[xxx]</span><br><span class="line">type &#x3D; https                              # 也可以是http</span><br><span class="line">local_ip &#x3D; 192.168.0.100                  # QNAP本地IP</span><br><span class="line">local_port &#x3D; 443                          # QNAP提供服务的端口号</span><br><span class="line">custom_domains &#x3D; xxx.aliyunsz.waiwang.men # xxx为自定义子域名，有自己的域名可以替代成自己的</span><br><span class="line"></span><br><span class="line">[xxx]</span><br><span class="line">type &#x3D; https</span><br><span class="line">local_ip &#x3D; 192.168.0.100</span><br><span class="line">local_port &#x3D; 5001</span><br><span class="line">custom_domains &#x3D; xxx.aliyunsz.waiwang.men</span><br><span class="line"></span><br><span class="line">[xxx]</span><br><span class="line">type &#x3D; tcp</span><br><span class="line">local_ip &#x3D; 192.168.0.100</span><br><span class="line">local_port &#x3D; 22</span><br><span class="line">remote_port &#x3D; xxx # 35000-50000之间</span><br></pre></td></tr></table></figure>
+<p>xxx为自定义<br>重启frpc，在控制台中看到xxx start proxy success即说明穿透成功<br>访问： <a href="https://xxx.aliyunsz.waiwang.men:8443" target="_blank" rel="noopener">https://xxx.aliyunsz.waiwang.men:8443</a> (如果是http服务则是88)</p>
 
       
     </div>
@@ -659,7 +380,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://192.168.0.100/posts/7448c947.html">
+    <link itemprop="mainEntityOfPage" href="https://192.168.0.100/posts/1f2a5d56.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -673,7 +394,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/posts/7448c947.html" class="post-title-link" itemprop="url">Hexo+Github,搭建属于自己的博客</a>
+            <a href="/posts/1f2a5d56.html" class="post-title-link" itemprop="url">Win7下pip默认镜像源的配置</a>
         </h2>
 
         <div class="post-meta">
@@ -683,14 +404,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-05-11 16:21:44" itemprop="dateCreated datePublished" datetime="2019-05-11T16:21:44+08:00">2019-05-11</time>
+              <time title="创建时间：2020-04-05 10:36:00" itemprop="dateCreated datePublished" datetime="2020-04-05T10:36:00+08:00">2020-04-05</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-29 15:32:35" itemprop="dateModified" datetime="2020-03-29T15:32:35+08:00">2020-03-29</time>
+                <time title="修改时间：2020-04-25 20:19:25" itemprop="dateModified" datetime="2020-04-25T20:19:25+08:00">2020-04-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -698,7 +419,11 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Blog/" itemprop="url" rel="index"><span itemprop="name">Blog</span></a>
+                  <a href="/categories/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Windows/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
                 </span>
             </span>
 
@@ -708,7 +433,385 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.4k</span>
+              <span>567</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="frps服务器"><a href="#frps服务器" class="headerlink" title="frps服务器"></a>frps服务器</h3><h3 id="临时更换源"><a href="#临时更换源" class="headerlink" title="临时更换源"></a>临时更换源</h3><pre><code>pip install xxx -i https://pypi.tuna.tsinghua.edu.cn/simple</code></pre><h3 id="永久更换源"><a href="#永久更换源" class="headerlink" title="永久更换源"></a>永久更换源</h3><p>用notepad++创建pip.ini文件，保存位置为：<br>%USERPROFILE%\AppData\Roaming\pip\pip.ini</p>
+<p>内容为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url &#x3D; http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;pypi&#x2F;simple&#x2F;</span><br><span class="line">[install]</span><br><span class="line">trusted-host &#x3D; mirrors.aliyun.com</span><br></pre></td></tr></table></figure>
+
+<h3 id="升级pip"><a href="#升级pip" class="headerlink" title="升级pip"></a>升级pip</h3><pre><code>python -m pip install --upgrade pip</code></pre><p>附【国内镜像】<br>中国科学技术大学 : <a href="https://pypi.mirrors.ustc.edu.cn/simple" target="_blank" rel="noopener">https://pypi.mirrors.ustc.edu.cn/simple</a><br>清华：<a href="https://pypi.tuna.tsinghua.edu.cn/simple" target="_blank" rel="noopener">https://pypi.tuna.tsinghua.edu.cn/simple</a><br>豆瓣：<a href="http://pypi.douban.com/simple/" target="_blank" rel="noopener">http://pypi.douban.com/simple/</a><br>华中理工大学 : <a href="http://pypi.hustunique.com/simple" target="_blank" rel="noopener">http://pypi.hustunique.com/simple</a><br>山东理工大学 : <a href="http://pypi.sdutlinux.org/simple" target="_blank" rel="noopener">http://pypi.sdutlinux.org/simple</a><br>阿里云：<a href="http://mirrors.aliyun.com/pypi/simple/" target="_blank" rel="noopener">http://mirrors.aliyun.com/pypi/simple/</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://192.168.0.100/posts/3e9ab994.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Will">
+      <meta itemprop="description" content="让距离成为距离的遐想，让彼此成为彼此的风景">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dove Studio">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/3e9ab994.html" class="post-title-link" itemprop="url">Python3.8安装Scrapy爬虫框架</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-05 00:11:00" itemprop="dateCreated datePublished" datetime="2020-04-05T00:11:00+08:00">2020-04-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-25 20:20:51" itemprop="dateModified" datetime="2020-04-25T20:20:51+08:00">2020-04-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Windows/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>298</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>步骤概览：<br>1、网络安装wheel、pyWin32<br>2、本地安装lxml；<a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/#lxml" target="_blank" rel="noopener">lxml下载地址</a><br>3、本地安装pyWin32；<a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/#pywin32" target="_blank" rel="noopener">pyWin32下载地址</a><br>4、本地安装Twisted；<a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/#twisted" target="_blank" rel="noopener">Twisted下载地址</a><br>5、网络安装Scrapy；</p>
+<p>1、网络安装wheel(实际发现pyWin32、lxml也可以网络安装）</p>
+<p>用管理员身份打开cmd &gt; 输入<br>    pip install wheel<br>    pip install pyWin32<br>    pip install lxml</p>
+<p>2、本地安装Twisted（网络安装过程中出错，没有详细研究）<br>    pip install xxx.whl</p>
+<p>3、网络安装Scrapy</p>
+<p>以管路员身份打开cmd &gt; 输入<br>    pip install scrapy</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://192.168.0.100/posts/c64db8d0.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Will">
+      <meta itemprop="description" content="让距离成为距离的遐想，让彼此成为彼此的风景">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dove Studio">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/c64db8d0.html" class="post-title-link" itemprop="url">如何删除Outlook中的重复邮件</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-05 00:06:00" itemprop="dateCreated datePublished" datetime="2020-04-05T00:06:00+08:00">2020-04-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-25 20:22:05" itemprop="dateModified" datetime="2020-04-25T20:22:05+08:00">2020-04-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="问题背景："><a href="#问题背景：" class="headerlink" title="问题背景："></a>问题背景：</h3><p>outlook 卸载重装后，会把之前已收的邮件，再次下载到本地，出现大量重复邮件。</p>
+<h3 id="解决思路："><a href="#解决思路：" class="headerlink" title="解决思路："></a>解决思路：</h3><p>搜索outlook邮件删除重复邮件的工具，有outlook duplicate items remover，Duplicate Email Remover，NoMoreDupes for Outlook等。但这些工具都要收费。故换了个思路，用宏来删除。</p>
+<h3 id="使用要点："><a href="#使用要点：" class="headerlink" title="使用要点："></a>使用要点：</h3><p>打开outlook，按快捷键Alt+F11，建立工程，并复制宏。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">Option Explicit</span><br><span class="line"> </span><br><span class="line">Sub DeleteDuplicateEmailsInSelectedFolder()</span><br><span class="line"> </span><br><span class="line">Dim i As Long</span><br><span class="line">Dim n As Long</span><br><span class="line">Dim DeletedCount As Long</span><br><span class="line">Dim Message As String</span><br><span class="line">Dim Items As Object</span><br><span class="line">Dim AppOL As Object</span><br><span class="line">Dim NS As Object</span><br><span class="line">Dim Folder As Object</span><br><span class="line"> </span><br><span class="line">Set Items &#x3D; CreateObject(&quot;Scripting.Dictionary&quot;)</span><br><span class="line"> </span><br><span class="line">&#39;Initialize and instance of Outlook</span><br><span class="line">Set AppOL &#x3D; CreateObject(&quot;Outlook.Application&quot;)</span><br><span class="line"> </span><br><span class="line">&#39;Get the MAPI Name Space</span><br><span class="line">Set NS &#x3D; AppOL.GetNamespace(&quot;MAPI&quot;)</span><br><span class="line"> </span><br><span class="line">&#39;Allow the user to select a folder in Outlook</span><br><span class="line">Set Folder &#x3D; NS.PickFolder</span><br><span class="line"> </span><br><span class="line">&#39;Get the count of the number of emails in the folder</span><br><span class="line">n &#x3D; Folder.Items.Count</span><br><span class="line"> </span><br><span class="line">&#39;Set the initial deleted count</span><br><span class="line">DeletedCount &#x3D; 0</span><br><span class="line"> </span><br><span class="line">&#39;Check each email starting from the last and working backwards to 1</span><br><span class="line">&#39;Loop backwards to ensure that the deleting of the emails does not interfere with subsequent items in the loop</span><br><span class="line">For i &#x3D; n To 1 Step -1</span><br><span class="line"> </span><br><span class="line">    On Error Resume Next</span><br><span class="line">    &#39;Load the matching criteria to a variable</span><br><span class="line">    &#39;This is setup to use the Sunject and Body, additional criteria could be added if desired</span><br><span class="line">    Message &#x3D; Folder.Items(i).Subject &amp; &quot;|&quot; &amp; Folder.Items(i).Body</span><br><span class="line"> </span><br><span class="line">        &#39;Check a dictionary variable for a match</span><br><span class="line">        If Items.Exists(Message) &#x3D; True Then</span><br><span class="line">        &#39;If the item has previously been added then delete this duplicate</span><br><span class="line">        Folder.Items(i).Delete</span><br><span class="line">        DeletedCount &#x3D; DeletedCount + 1</span><br><span class="line">    Else</span><br><span class="line">        &#39;In the item has not been added then add it now so subsequent matches will be deleted</span><br><span class="line">        Items.Add Message, True</span><br><span class="line">End If</span><br><span class="line"> </span><br><span class="line">Next i</span><br><span class="line"> </span><br><span class="line">ExitSub:</span><br><span class="line"> </span><br><span class="line">&#39;Release the object variables from memory</span><br><span class="line">Set Folder &#x3D; Nothing</span><br><span class="line">Set NS &#x3D; Nothing</span><br><span class="line">Set AppOL &#x3D; Nothing</span><br><span class="line"> </span><br><span class="line">MsgBox &quot;共删除&quot; &amp; DeletedCount &amp; &quot;封邮件。&quot;</span><br><span class="line"> </span><br><span class="line">End Sub</span><br></pre></td></tr></table></figure>
+
+<p>然后F5运行此宏即可，如果提示宏被禁用，主菜单中文件-&gt;选项-&gt;信任中心，信任中心设置-&gt;宏设置，选择“启动所有宏”或者“为所有宏提供通知”。亲测Outlook2013有效，运行时需耐心等待。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://192.168.0.100/posts/ab7eb2fe.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Will">
+      <meta itemprop="description" content="让距离成为距离的遐想，让彼此成为彼此的风景">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dove Studio">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/ab7eb2fe.html" class="post-title-link" itemprop="url">WSL 挂载移动硬盘U盘</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-04 11:58:00" itemprop="dateCreated datePublished" datetime="2020-04-04T11:58:00+08:00">2020-04-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-25 20:32:17" itemprop="dateModified" datetime="2020-04-25T20:32:17+08:00">2020-04-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Windows/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>161</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>假设你的移动硬盘在windows下显示为 F:\</p>
+<p>1.新建文件夹f<br>    sudo mkdir /mnt/f</p>
+<p>2.挂载盘符f<br>    sudo mount -t drvfs F: /mnt/f</p>
+<p>3.大功告成。进入/mnt/f即可与windows下一摸一样。</p>
+<p>4.弹出移动硬盘，这样才能在windows下正常弹出，否则是会一直占用的。<br>    sudo umount /mnt/f</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://192.168.0.100/posts/7bf42b13.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Will">
+      <meta itemprop="description" content="让距离成为距离的遐想，让彼此成为彼此的风景">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dove Studio">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/7bf42b13.html" class="post-title-link" itemprop="url">QNAP上安装Aria2</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-02 23:43:00" itemprop="dateCreated datePublished" datetime="2020-04-02T23:43:00+08:00">2020-04-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-25 20:31:09" itemprop="dateModified" datetime="2020-04-25T20:31:09+08:00">2020-04-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NAS/" itemprop="url" rel="index"><span itemprop="name">NAS</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -727,87 +830,340 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>写blog虽然经历了N多不同时代的产品，恒久不变的始终是自己无人问津的网站。虽然没几个人看，还是隔断时间就要折腾一下。从最开始的wordpress，到tale，到现在的hexo，网站变得越来越简单，越来越轻量级，这里主要说说hexo的使用。<br>hexo介绍<br>主页： <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">https://hexo.io/zh-cn/</a><br>主页中有非常详细的介绍，主页中有介绍内容我这里就不赘述了，这里主要说说主页中没有详细说明内容。</p>
-<p>hexo 可以理解为是基于node.js制作的一个博客工具，不是我们理解的一个开源的博客系统。其中的差别，有点意思。<br>hexo 正常来说，不需要部署到我们的服务器上，我们的服务器上保存的，其实是基于在hexo通过markdown编写的文章，然后hexo帮我们生成静态的html页面，然后，将生成的html上传到我们的服务器。简而言之：hexo是个静态页面生成、上传的工具。</p>
-<p>下面安装及使用的系统环境为Ubuntu。</p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>1 安装nodejs</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nodejs</span><br></pre></td></tr></table></figure>
-<p>2 安装git</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git</span><br></pre></td></tr></table></figure>
-<p>3 安装npm</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install npm</span><br></pre></td></tr></table></figure>
-<p>4 使用npm安装Hexo </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+          <p>安装Aria2<br>    opkg update<br>    opkg install aria2<br>    aria2c -v</p>
+<p>安装成功后会打印以下信息<br>    aria2 version 1.33.0</p>
+<pre><code>Copyright (C) 2006, 2017 Tatsuhiro Tsujikawa
 
-<p>5 下面开始生成blog</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">npm install</span><br><span class="line">hexo generate</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-<p>然后可以打开浏览器输入localhost:4000查看本地网站</p>
-<p>源码结构</p>
-<ul>
-<li>_config.yml 配置文件</li>
-<li>public      生成的静态文件，这个目录最终会发布到服务器</li>
-<li>scaffolds   一些通用的markdown模板</li>
-<li>source      编写的markdown文件，_drafts草稿文件，_posts发布的文章</li>
-<li>themes      博客的模板</li>
-</ul>
-<p>我们正常使用，修改最多的源码是_config.yml文件，不管是博客的基础配置，还是模板，都是修改这个文件。<br>source是我们日常写文章要用的目录，是我们日常操作的文件夹。<br>如果针对下载的模板修改，那么就需要操作themes了。hexo是用node.js编写的程序，所以theme的修改也是比较容易的。</p>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h4 id="编写BLOG"><a href="#编写BLOG" class="headerlink" title="编写BLOG"></a>编写BLOG</h4><p>官方新编写BLOG，建议的是使用命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new [layout] <span class="string">"title"</span></span><br></pre></td></tr></table></figure>
-<p>其实，你可以直接在_drafts新建markdown文件，就是草稿了，在_posts新建markdown文件，就是发布的文章了。当然，记得在顶部加上相关的描述，效果和命令新建文件，是一样一样的。</p>
-<h4 id="模板安装和使用"><a href="#模板安装和使用" class="headerlink" title="模板安装和使用"></a>模板安装和使用</h4><p>hexo为我们提供了非常多好看实用的模板，官网提供了很多模板，但是，针对模板的使用，只进行了非常简单的说明，这里以我自己的使用的模板diaspora为例，进行详细的补充。</p>
-<p>其实，模板的使用，简单来说，只需要两个步骤：</p>
-<p>1 将模板copy到themes目录，如：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> themes</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/Fechin/hexo-theme-diaspora.git diaspora</span><br></pre></td></tr></table></figure>
-<p>2 修改_config.yml中的theme：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: diaspora</span><br></pre></td></tr></table></figure>
-<p>所有的模板，共有的操作方式就只有这两个，但是不同的模板，会有很多不同的设置，这里就需要针对模板的使用说明进行修改了。建议通过github找到模板，看下readme。</p>
-<p>必要的时候需要更新主题<br>注意：请在更时主题时备份<code>_config.yml</code>配置文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> themes/diaspora</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
-<h4 id="新建文章模板"><a href="#新建文章模板" class="headerlink" title="新建文章模板"></a>新建文章模板</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">categories: </span><br><span class="line"><span class="bullet">    - </span>categorie</span><br><span class="line">tags: </span><br><span class="line"><span class="bullet">    - </span>tag1</span><br><span class="line"><span class="bullet">    - </span>tag2</span><br><span class="line">mp3: </span><br><span class="line"><span class="bullet">    - </span>http://xxx.xxx.xxx/xxx.mp3</span><br><span class="line"><span class="bullet">    - </span>http://xxx.xxx.xxx/xxx.mp3</span><br><span class="line">cover: /img/cover.jpg</span><br></pre></td></tr></table></figure>
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
 
-<h4 id="创建分类页"><a href="#创建分类页" class="headerlink" title="创建分类页"></a>创建分类页</h4><p>1 新建一个页面，命名为 Categories 。命令如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page Categories</span><br></pre></td></tr></table></figure>
-<p>2 编辑刚新建的页面，将页面的类型设置为 categories</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">title: Categories</span><br><span class="line">date: 2019-05-11 16:44:48</span><br><span class="line">type: "categories"</span><br></pre></td></tr></table></figure>
-<p>主题将自动为这个页面显示所有分类。</p>
-<h4 id="创建标签页"><a href="#创建标签页" class="headerlink" title="创建标签页"></a>创建标签页</h4><p>1 新建一个页面，命名为 Tags 。命令如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page Tags</span><br></pre></td></tr></table></figure>
-<p>2 编辑刚新建的页面，将页面的类型设置为 tags</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">title: Tags</span><br><span class="line">date: 2019-05-11 16:45:50</span><br><span class="line">type: "tags"</span><br></pre></td></tr></table></figure>
-<p>主题将自动为这个页面显示所有标签。</p>
-<h4 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h4><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 头部菜单，title: link</span></span><br><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">Categories:</span> <span class="string">/Categories</span></span><br><span class="line">  <span class="attr">Tags:</span> <span class="string">/Tags</span></span><br><span class="line">  <span class="attr">Github:</span> <span class="string">https://github.com/dove-study</span></span><br></pre></td></tr></table></figure>
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
 
-<h3 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h3><p>现在比较流行的方式，都是将代码发布到git，因为我同时要传到github和自己的博客，所有我的处理方式就是：先将代码传到github，再在自己的服务器获取github代码，服务器上自己部署一个nginx，解析静态网页即可。<br>1 首先注册github账号，比如dove-study<br><a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a></p>
-<p>2 然后创建一个新项目：<br>固定格式：dove-study.github.io</p>
-<p>3 点击设置，创建一个page，选择一个主题，不过没什么用，反正马上就被覆盖掉了，这个时候访问一下链接，应该可以看到效果</p>
-<p>4 安装git插件：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+** Configuration **
+Enabled Features: BitTorrent, GZip, HTTPS, Message Digest, Metalink, XML-RPC, SFTP
+Hash Algorithms: sha-1, sha-224, sha-256, sha-384, sha-512, md5, adler32
+Libraries: zlib/1.2.11 libxml2/2.9.7 OpenSSL/1.0.2n libssh2/1.7.0
+Compiler: gcc 6.3.0
+built by  x86_64-pc-linux-gnu
+targeting x86_64-openwrt-linux-gnu
+on        Jan 11 2018 07:55:53
 
-<p>5 git的配置，修改_config.yml文件，使用SSH（非HTTPS）:</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:dove-study/dove-study.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+System: Linux 4.14.24-qnap #1 SMP Fri Feb 14 09:52:34 CST 2020 x86_64
 
-<p>6 配置本地的ssh github私钥</p>
-<ul>
-<li>本地生成公钥私钥<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"dove-study@qq.com"</span></span><br></pre></td></tr></table></figure></li>
-<li>添加公钥到 Github<br>根据上一步的提示，找到公钥文件（默认为id_rsa.pub），用记事本打开，全选并复制。<br>登录 Github，右上角 头像 -&gt; Settings —&gt; SSH keys —&gt; Add SSH key。把公钥粘贴到key中，填好title并点击 Add key。</li>
-<li>配置完成后输入命令进行测试<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-第一次还需要输入yes确认，等待片刻可看到成功提示。</li>
-</ul>
-<p>7 设置您账号的缺省身份标识</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email <span class="string">"dove-study@qq.com"</span></span><br><span class="line">git config --global user.name <span class="string">"dove-study"</span></span><br></pre></td></tr></table></figure>
-<p>如果仅在本仓库设置身份标识，则省略 –global 参数。<br>如果存在多个用户，需要设置配置文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gedit ~/.ssh/config</span><br></pre></td></tr></table></figure>
-<p>输入以下内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">HostName github.com</span><br><span class="line">User git</span><br><span class="line">IdentityFile ~&#x2F;.ssh&#x2F;id_dove</span><br></pre></td></tr></table></figure>
+Report bugs to https://github.com/aria2/aria2/issues
+Visit https://aria2.github.io/</code></pre><p>By default, Aria2 is configured to start as a daemon, download any content to /opt/var/aria2/torrents, listen RPC control port 6800, which can be accessed with Passw0rd token. You can change this settings in /opt/etc/aria2.conf if necessary.</p>
+<p>修改配置<br>    vim /opt/etc/aria2.conf</p>
+<p>配置文件说明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">## 文件保存相关 ##</span><br><span class="line"> </span><br><span class="line"># 文件保存目录</span><br><span class="line">dir&#x3D;&#x2F;home&#x2F;naonao&#x2F;Downloads</span><br><span class="line"># 启用磁盘缓存, 0为禁用缓存, 需1.16以上版本, 默认:16M</span><br><span class="line">disk-cache&#x3D;32M</span><br><span class="line"># 断点续传</span><br><span class="line">continue&#x3D;true</span><br><span class="line"> </span><br><span class="line"># 文件预分配方式, 能有效降低磁盘碎片, 默认:prealloc</span><br><span class="line"># 预分配所需时间: none &lt; falloc ? trunc &lt; prealloc</span><br><span class="line"># falloc和trunc则需要文件系统和内核支持</span><br><span class="line"># NTFS建议使用falloc, EXT3&#x2F;4建议trunc, MAC 下需要注释此项</span><br><span class="line">file-allocation&#x3D;trunc</span><br><span class="line"> </span><br><span class="line">## 下载连接相关 ##</span><br><span class="line"> </span><br><span class="line"># 最大同时下载任务数, 运行时可修改, 默认:5</span><br><span class="line">#max-concurrent-downloads&#x3D;100</span><br><span class="line"># 同一服务器连接数, 添加时可指定, 默认:1</span><br><span class="line"># 官方的aria2最高设置为16, 如果需要设置任意数值请重新编译aria2</span><br><span class="line">max-connection-per-server&#x3D;256</span><br><span class="line"># 整体下载速度限制, 运行时可修改, 默认:0（不限制）</span><br><span class="line">#max-overall-download-limit&#x3D;0</span><br><span class="line"># 单个任务下载速度限制, 默认:0（不限制）</span><br><span class="line">#max-download-limit&#x3D;0</span><br><span class="line"># 整体上传速度限制, 运行时可修改, 默认:0（不限制）</span><br><span class="line">#max-overall-upload-limit&#x3D;0</span><br><span class="line"># 单个任务上传速度限制, 默认:0（不限制）</span><br><span class="line">#max-upload-limit&#x3D;0</span><br><span class="line"># 禁用IPv6, 默认:false</span><br><span class="line"># disable-ipv6&#x3D;true</span><br><span class="line"> </span><br><span class="line"># 最小文件分片大小, 添加时可指定, 取值范围1M -1024M, 默认:20M</span><br><span class="line"># 假定size&#x3D;10M, 文件为20MiB 则使用两个来源下载; 文件为15MiB 则使用一个来源下载</span><br><span class="line">min-split-size&#x3D;10M</span><br><span class="line"># 单个任务最大线程数, 添加时可指定, 默认:5</span><br><span class="line"># 建议同max-connection-per-server设置为相同值</span><br><span class="line">split&#x3D;256</span><br><span class="line"> </span><br><span class="line">## 进度保存相关 ##</span><br><span class="line"> </span><br><span class="line"># 从会话文件中读取下载任务</span><br><span class="line">input-file&#x3D;&#x2F;etc&#x2F;aria2&#x2F;aria2.session</span><br><span class="line"># 在Aria2退出时保存错误的、未完成的下载任务到会话文件</span><br><span class="line">save-session&#x3D;&#x2F;etc&#x2F;aria2&#x2F;aria2.session</span><br><span class="line"># 定时保存会话, 0为退出时才保存, 需1.16.1以上版本, 默认:0</span><br><span class="line">save-session-interval&#x3D;60</span><br><span class="line"> </span><br><span class="line">## RPC相关设置 ##</span><br><span class="line"> </span><br><span class="line"># 启用RPC, 默认:false</span><br><span class="line">enable-rpc&#x3D;true</span><br><span class="line"># 允许所有来源, 默认:false</span><br><span class="line">rpc-allow-origin-all&#x3D;true</span><br><span class="line"># 允许外部访问, 默认:false</span><br><span class="line">rpc-listen-all&#x3D;true</span><br><span class="line"># RPC端口, 仅当默认端口被占用时修改</span><br><span class="line"># rpc-listen-port&#x3D;6800</span><br><span class="line"># 设置的RPC授权令牌, v1.18.4新增功能, 取代 --rpc-user 和 --rpc-passwd 选项</span><br><span class="line">rpc-secret&#x3D;yourpassword</span><br><span class="line"># 启动SSL</span><br><span class="line"># rpc-secure&#x3D;true</span><br><span class="line"># 证书文件, 如果启用SSL则需要配置证书文件, 例如用https连接aria2</span><br><span class="line"># rpc-certificate&#x3D;</span><br><span class="line"># rpc-private-key&#x3D;</span><br><span class="line"> </span><br><span class="line">## BT&#x2F;PT下载相关 ##</span><br><span class="line"> </span><br><span class="line"># 当下载的是一个种子(以.torrent结尾)时, 自动开始BT任务, 默认:true</span><br><span class="line">follow-torrent&#x3D;true</span><br><span class="line"># 客户端伪装, PT需要</span><br><span class="line">peer-id-prefix&#x3D;-TR2770-</span><br><span class="line">user-agent&#x3D;Transmission&#x2F;2.77</span><br><span class="line"># 强制保存会话, 即使任务已经完成, 默认:false</span><br><span class="line"># 较新的版本开启后会在任务完成后依然保留.aria2文件</span><br><span class="line">#force-save&#x3D;false</span><br><span class="line"># 继续之前的BT任务时, 无需再次校验, 默认:false</span><br><span class="line">bt-seed-unverified&#x3D;true</span><br><span class="line"># 保存磁力链接元数据为种子文件(.torrent文件), 默认:false</span><br><span class="line"># bt-save-metadata&#x3D;true</span><br><span class="line"># 单个种子最大连接数, 默认:55 0表示不限制</span><br><span class="line">bt-max-peers&#x3D;0</span><br><span class="line"># 最小做种时间, 单位:分</span><br><span class="line"># seed-time &#x3D; 60</span><br><span class="line"># 分离做种任务</span><br><span class="line">bt-detach-seed-only&#x3D;true</span><br></pre></td></tr></table></figure>
 
-<p>8 将本地的文章通过hexo官方推荐的方式push到github：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
-<p>这样应该就能在你的github上看到上传的代码了，这时看到的应该是纯静态的一个站点。<br>既然代码已经上传了，那么只要在我的服务器配置好github和ssh私钥，就能顺利的pull代码了，当然，还需要写个crontab定时来拉取，不需要自己登录服务器操作了。</p>
-<h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><h4 id="执行deploy命令了，但是代码未上传？"><a href="#执行deploy命令了，但是代码未上传？" class="headerlink" title="执行deploy命令了，但是代码未上传？"></a>执行deploy命令了，但是代码未上传？</h4><p>先执行<code>hexo generate</code>命令，生成静态文件了，再执行<code>hexo deploy</code>上传，上传是只会上传public中生成的文件。</p>
-<h4 id="修改了模板，但是没有生效？"><a href="#修改了模板，但是没有生效？" class="headerlink" title="修改了模板，但是没有生效？"></a>修改了模板，但是没有生效？</h4><p>修改了模板以后不生效，建议先<code>hexo clean</code>，然后再<code>hexo generate</code>。只执行hexo generate，可能模板后者静态文件不会被替换。</p>
-<h4 id="预览不太方便？"><a href="#预览不太方便？" class="headerlink" title="预览不太方便？"></a>预览不太方便？</h4><p>开发环境提供了实时预览的方式，不需要每次都generate，执行命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate -w</span><br></pre></td></tr></table></figure>
-<p>系统会实时生成新的HTML，非常方便。</p>
+<p>启动<br>    /opt/etc/init.d/S81aria2 start</p>
+<p>关闭<br>    /opt/etc/init.d/S81aria2 stop</p>
+<p>下载文件<br>    aria2c xxx -d dir</p>
+<p>如果下载遇到以下错误：<br>    [SocketCore.cc:1015] errorCode=1 SSL/TLS handshake failure: unable to get local issuer certificate</p>
+<p>请安装以下软件：<br>    opkg install ca-certificates</p>
+<p>安装WebUI</p>
+<p><a href="http://ziahamza.github.io/webui-aria2/" target="_blank" rel="noopener">Aria2 WebUI by @ziahamza</a><br><a href="http://binux.github.io/yaaw/demo/" target="_blank" rel="noopener">YAAW WebUI by @binux</a></p>
+<p>下载Aria2 WebUI，然后解压到Web目录，文件夹命名为aria2，然后访问 <a href="http://xxx.xxx.xxx.xxx/aria2" target="_blank" rel="noopener">http://xxx.xxx.xxx.xxx/aria2</a> 即可</p>
+<p>参考 <a href="https://github.com/Entware/Entware-ng/wiki/Using-Aria2" target="_blank" rel="noopener">https://github.com/Entware/Entware-ng/wiki/Using-Aria2</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://192.168.0.100/posts/6baf6858.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Will">
+      <meta itemprop="description" content="让距离成为距离的遐想，让彼此成为彼此的风景">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dove Studio">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/6baf6858.html" class="post-title-link" itemprop="url">QNAP上安装Git Server</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-02 23:38:00" itemprop="dateCreated datePublished" datetime="2020-04-02T23:38:00+08:00">2020-04-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-25 20:26:04" itemprop="dateModified" datetime="2020-04-25T20:26:04+08:00">2020-04-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NAS/" itemprop="url" rel="index"><span itemprop="name">NAS</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>331</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><pre><code>opkg update
+opkg install git</code></pre><p>初始化git服务器端仓库,git仓库务必存放在非系统自带的目录下，否则系统重启之后数据会被抹掉<br>    cd /share/CACHEDEV1_DATA<br>    mkdir git<br>    cd git<br>    git init –bare python.git</p>
+<p>为NAS添加名称为git的用户和用户群，用于所有的git仓库访问。这里最好通过NAS自带的WEB界面创建用户和用户群，且git用户无需其他目录的权限。创建之后，通过WEB界面使用git用户进行登陆，这样NAS系统会自动设置好git用户的默认目录（这个目录是/share/homes/git）。</p>
+<p>更改git仓库目录的所有者为git用户。运行如下命令：<br>    chown -R git:git python.git</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://192.168.0.100/posts/e2563005.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Will">
+      <meta itemprop="description" content="让距离成为距离的遐想，让彼此成为彼此的风景">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dove Studio">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/e2563005.html" class="post-title-link" itemprop="url">QNAP上安装Python3</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-02 22:02:00" itemprop="dateCreated datePublished" datetime="2020-04-02T22:02:00+08:00">2020-04-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-25 20:27:20" itemprop="dateModified" datetime="2020-04-25T20:27:20+08:00">2020-04-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NAS/" itemprop="url" rel="index"><span itemprop="name">NAS</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NAS/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>796</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="通过应用商店安装"><a href="#通过应用商店安装" class="headerlink" title="通过应用商店安装"></a>通过应用商店安装</h3><p>安装应用商店里面的python3之后，没有任何作用。<br>通过shell链接到NAS上找到安装包的位置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[~] # cat &#x2F;share&#x2F;CACHEDEV1_DATA&#x2F;.qpkg&#x2F;Python3&#x2F;README.md</span><br><span class="line">Run the following command to enter Python3 environment:</span><br><span class="line">$ . &#x2F;etc&#x2F;profile.d&#x2F;python3.bash</span><br></pre></td></tr></table></figure>
+
+<p>有可能会报告没有运行权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[~] # ls -als &#x2F;etc&#x2F;profile.d&#x2F;python3.bash</span><br><span class="line">0 lrwxrwxrwx 1 admin administ 48 Feb 9 12:54 &#x2F;etc&#x2F;profile.d&#x2F;python3.bash -&gt; &#x2F;share&#x2F;CACHEDEV1_DATA&#x2F;.qpkg&#x2F;Python3&#x2F;python3.bash</span><br></pre></td></tr></table></figure>
+
+<p>执行如下命令添加权限即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[~] # chmod 744 &#x2F;share&#x2F;CACHEDEV1_DATA&#x2F;.qpkg&#x2F;Python3&#x2F;python3.bash</span><br><span class="line">[~] # . &#x2F;etc&#x2F;profile.d&#x2F;python3.bash</span><br></pre></td></tr></table></figure>
+<p>但是似乎不能开机就运行这个脚本。每次重新开机都要去再运行一次，但是似乎也不是什么大问题了。</p>
+<h3 id="通过Entware-ng安装"><a href="#通过Entware-ng安装" class="headerlink" title="通过Entware-ng安装"></a>通过Entware-ng安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">opkg install python3</span><br><span class="line">opkg install python3-pip</span><br></pre></td></tr></table></figure>
+<p>pip也可以通过以下命令安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl https:&#x2F;&#x2F;bootstrap.pypa.io&#x2F;get-pip.py -o get-pip.py</span><br><span class="line">python get-pip.py</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://192.168.0.100/posts/a9f80523.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Will">
+      <meta itemprop="description" content="让距离成为距离的遐想，让彼此成为彼此的风景">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dove Studio">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/a9f80523.html" class="post-title-link" itemprop="url">WSL Ubuntu 18.04环境准备</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-02 19:20:00" itemprop="dateCreated datePublished" datetime="2020-04-02T19:20:00+08:00">2020-04-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-25 20:32:04" itemprop="dateModified" datetime="2020-04-25T20:32:04+08:00">2020-04-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Windows/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="更换国内源"><a href="#更换国内源" class="headerlink" title="更换国内源"></a>更换国内源</h2><p>系统默认的apt源是国外的，下载软件速度慢，python的pip源也很慢，我们都换成阿里云的源。</p>
+<h3 id="更换apt源："><a href="#更换apt源：" class="headerlink" title="更换apt源："></a>更换apt源：</h3><pre><code>cd /etc/apt/sudo
+cp sources.list sources.list.bak &amp;&amp; sudo vim sources.list</code></pre><p>删除其中所有内容(dG)，替换成：<br>    deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic main restricted universe multiverse<br>    deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic-security main restricted universe multiverse<br>    deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic-updates main restricted universe multiverse<br>    deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic-proposed main restricted universe multiverse<br>    deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic-backports main restricted universe multiverse<br>    deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic main restricted universe multiverse<br>    deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic-security main restricted universe multiverse<br>    deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic-updates main restricted universe multiverse<br>    deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic-proposed main restricted universe multiverse<br>    deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic-backports main restricted universe multiverse</p>
+<p>然后更新<br>    sudo apt update<br>    sudo apt upgrade</p>
+<h3 id="更换pip源"><a href="#更换pip源" class="headerlink" title="更换pip源"></a>更换pip源</h3><p>安装pip并设置成默认<br>    sudo apt install python3-pip<br>    sudo ln -s /usr/bin/python3 /usr/bin/python<br>    sudo ln -s /usr/bin/pip3 /usr/bin/pip</p>
+<p>修改pip源：<br>    mkdir ~/.pip &amp;&amp; vi ~/.pip/pip.conf</p>
+<p>在打开的vim中输入下文并保存：<br>    [global]<br>    index-url = <a href="http://mirrors.aliyun.com/pypi/simple/" target="_blank" rel="noopener">http://mirrors.aliyun.com/pypi/simple/</a><br>    [install]<br>    trusted-host = mirrors.aliyun.com</p>
+<h3 id="准备Hexo环境"><a href="#准备Hexo环境" class="headerlink" title="准备Hexo环境"></a>准备Hexo环境</h3><p>安装nodejs及npm<br>    sudo apt update<br>    sudo apt install nodejs<br>    sudo apt install npm</p>
+<p>配置npm<br>    npm config set registry <a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a><br>    npm config get registry // 配置后可通过该命令来验证是否成功</p>
+<p>安装hexo<br>    npm install hexo-cli -g</p>
 
       
     </div>
@@ -826,6 +1182,9 @@
   </div>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
 
 
 
@@ -890,20 +1249,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -940,13 +1299,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">10k</span>
+    <span title="站点总字数">28k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">9 分钟</span>
+    <span title="站点阅读时长">25 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
