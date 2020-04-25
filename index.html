@@ -196,7 +196,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-25 20:14:08" itemprop="dateModified" datetime="2020-04-25T20:14:08+08:00">2020-04-25</time>
+                <time title="修改时间：2020-04-25 20:45:59" itemprop="dateModified" datetime="2020-04-25T20:45:59+08:00">2020-04-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -235,10 +235,16 @@
       
           <p>整体流程为：STM32CubeMX生成工程模板，VSCode编辑和调试程序，Make启动编译，ARM GCC编译程序，OpenOCD连接调试器。</p>
 <h3 id="下载安装Java运行环境"><a href="#下载安装Java运行环境" class="headerlink" title="下载安装Java运行环境"></a>下载安装Java运行环境</h3><p><a href="https://www.java.com/zh_CN/download/" target="_blank" rel="noopener">适用于 Windows 的 32 位 Java</a><br><a href="https://www.java.com/zh_CN/download/windows-64bit.jsp" target="_blank" rel="noopener">适用于 Windows 的 64 位 Java</a></p>
-<h3 id="下载安装STM32CubeMX"><a href="#下载安装STM32CubeMX" class="headerlink" title="下载安装STM32CubeMX"></a>下载安装<a href="http://www.st.com/content/st_com/zh/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-configurators-and-code-generators/stm32cubemx.html" target="_blank" rel="noopener">STM32CubeMX</a></h3><h3 id="下载-OpenOCD-for-Windows"><a href="#下载-OpenOCD-for-Windows" class="headerlink" title="下载 OpenOCD for Windows"></a>下载 <a href="https://gnutoolchains.com/arm-eabi/openocd/" target="_blank" rel="noopener">OpenOCD for Windows</a></h3><p>下载后的文件不是安装包，把程序文件夹放入自己的软件安装目录下，将软件的bin文件夹路径加入用户环境变量PATH中。 如：<br>    C:\ARM\OpenOCD\bin<br>    # 运行以下命令验证<br>    openocd -v</p>
-<h3 id="下载安装-arm-none-eabi-gcc"><a href="#下载安装-arm-none-eabi-gcc" class="headerlink" title="下载安装 arm-none-eabi-gcc"></a>下载安装 <a href="https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads" target="_blank" rel="noopener">arm-none-eabi-gcc</a></h3><p>正常安装，安装后需要将软件的安装目录下的bin文件夹设置进入环境变量PATH中。 如：<br>    C:\ARM\gcc-arm-none-eabi\9 2019-q4-major\bin<br>    # 运行以下命令验证<br>    arm-none-eabi-gcc -v</p>
-<h3 id="下载-make"><a href="#下载-make" class="headerlink" title="下载 make"></a>下载 <a href="http://gnuwin32.sourceforge.net/packages/make.htm" target="_blank" rel="noopener">make</a></h3><p>下载文件选择Complete package, except sources。将bin文件夹设置进入环境变量PATH中。 如：<br>    C:\ARM\GnuWin32\bin<br>    # 运行以下命令验证<br>    make -v</p>
-<h3 id="VSCode安装C-C-、ARM、Cortex-Debug、Cortex-Debug-Device-Support-Pack-STM32F1插件"><a href="#VSCode安装C-C-、ARM、Cortex-Debug、Cortex-Debug-Device-Support-Pack-STM32F1插件" class="headerlink" title="VSCode安装C/C++、ARM、Cortex-Debug、Cortex-Debug: Device Support Pack - STM32F1插件"></a>VSCode安装C/C++、ARM、Cortex-Debug、Cortex-Debug: Device Support Pack - STM32F1插件</h3><p>另外，还可以用Git Bash替代cmd，点击 文件 -&gt; 首选项 -&gt; 设置，来打开 VS Code 的配置文件（ VS Code 采用 json 格式的文件进行配置，没有图形界面），在文件中加入如下配置，尤其注意最后两项执行程序的路径要设到自己的路径下：</p>
+<h3 id="下载安装STM32CubeMX"><a href="#下载安装STM32CubeMX" class="headerlink" title="下载安装STM32CubeMX"></a>下载安装<a href="http://www.st.com/content/st_com/zh/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-configurators-and-code-generators/stm32cubemx.html" target="_blank" rel="noopener">STM32CubeMX</a></h3><h3 id="下载-OpenOCD-for-Windows"><a href="#下载-OpenOCD-for-Windows" class="headerlink" title="下载 OpenOCD for Windows"></a>下载 <a href="https://gnutoolchains.com/arm-eabi/openocd/" target="_blank" rel="noopener">OpenOCD for Windows</a></h3><p>下载后的文件不是安装包，把程序文件夹放入自己的软件安装目录下，将软件的bin文件夹路径加入用户环境变量PATH中。 如：</p>
+<pre><code>C:\ARM\OpenOCD\bin
+# 运行以下命令验证
+openocd -v</code></pre><h3 id="下载安装-arm-none-eabi-gcc"><a href="#下载安装-arm-none-eabi-gcc" class="headerlink" title="下载安装 arm-none-eabi-gcc"></a>下载安装 <a href="https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads" target="_blank" rel="noopener">arm-none-eabi-gcc</a></h3><p>正常安装，安装后需要将软件的安装目录下的bin文件夹设置进入环境变量PATH中。 如：</p>
+<pre><code>C:\ARM\gcc-arm-none-eabi\9 2019-q4-major\bin
+# 运行以下命令验证
+arm-none-eabi-gcc -v</code></pre><h3 id="下载-make"><a href="#下载-make" class="headerlink" title="下载 make"></a>下载 <a href="http://gnuwin32.sourceforge.net/packages/make.htm" target="_blank" rel="noopener">make</a></h3><p>下载文件选择Complete package, except sources。将bin文件夹设置进入环境变量PATH中。 如：</p>
+<pre><code>C:\ARM\GnuWin32\bin
+# 运行以下命令验证
+make -v</code></pre><h3 id="VSCode安装C-C-、ARM、Cortex-Debug、Cortex-Debug-Device-Support-Pack-STM32F1插件"><a href="#VSCode安装C-C-、ARM、Cortex-Debug、Cortex-Debug-Device-Support-Pack-STM32F1插件" class="headerlink" title="VSCode安装C/C++、ARM、Cortex-Debug、Cortex-Debug: Device Support Pack - STM32F1插件"></a>VSCode安装C/C++、ARM、Cortex-Debug、Cortex-Debug: Device Support Pack - STM32F1插件</h3><p>另外，还可以用Git Bash替代cmd，点击 文件 -&gt; 首选项 -&gt; 设置，来打开 VS Code 的配置文件（ VS Code 采用 json 格式的文件进行配置，没有图形界面），在文件中加入如下配置，尤其注意最后两项执行程序的路径要设到自己的路径下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;editor.detectIndentation&quot;: false,</span><br><span class="line">    &quot;git.ignoreMissingGitWarning&quot;: true,</span><br><span class="line">    &quot;files.autoGuessEncoding&quot;: true,</span><br><span class="line">    &quot;editor.formatOnSave&quot;: true,</span><br><span class="line">    &quot;editor.formatOnPaste&quot;: true,</span><br><span class="line">    &quot;editor.formatOnType&quot;: true,</span><br><span class="line">    &quot;terminal.integrated.shell.windows&quot;: &quot;C:\\Program Files\\Git\\bin\\bash.exe&quot;,</span><br><span class="line">    &quot;terminal.external.windowsExec&quot;: &quot;C:\\Program Files\\Git\\bin\\bash.exe&quot;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>然后我们我们重启程序加载配置，而后点击 查看 -&gt; 终端 可以看到 VS Code 的内部终端已经改变为 MINGW64 的终端。</p>
 <h3 id="第一个工程"><a href="#第一个工程" class="headerlink" title="第一个工程"></a>第一个工程</h3><p>使用STM32CubeMX生成一个Makefile工程，用VSCode添加工程文件夹到工作区，写个Led闪烁的程序。打开终端，终端输入make -j4（-j4指定4线程编译，提高速度）</p>
@@ -314,7 +320,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-25 20:17:24" itemprop="dateModified" datetime="2020-04-25T20:17:24+08:00">2020-04-25</time>
+                <time title="修改时间：2020-04-25 20:34:40" itemprop="dateModified" datetime="2020-04-25T20:34:40+08:00">2020-04-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -411,7 +417,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-25 20:19:25" itemprop="dateModified" datetime="2020-04-25T20:19:25+08:00">2020-04-25</time>
+                <time title="修改时间：2020-04-25 20:45:24" itemprop="dateModified" datetime="2020-04-25T20:45:24+08:00">2020-04-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -507,7 +513,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-25 20:20:51" itemprop="dateModified" datetime="2020-04-25T20:20:51+08:00">2020-04-25</time>
+                <time title="修改时间：2020-04-25 20:46:19" itemprop="dateModified" datetime="2020-04-25T20:46:19+08:00">2020-04-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -550,11 +556,13 @@
       
           <p>步骤概览：<br>1、网络安装wheel、pyWin32<br>2、本地安装lxml；<a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/#lxml" target="_blank" rel="noopener">lxml下载地址</a><br>3、本地安装pyWin32；<a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/#pywin32" target="_blank" rel="noopener">pyWin32下载地址</a><br>4、本地安装Twisted；<a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/#twisted" target="_blank" rel="noopener">Twisted下载地址</a><br>5、网络安装Scrapy；</p>
 <p>1、网络安装wheel(实际发现pyWin32、lxml也可以网络安装）</p>
-<p>用管理员身份打开cmd &gt; 输入<br>    pip install wheel<br>    pip install pyWin32<br>    pip install lxml</p>
-<p>2、本地安装Twisted（网络安装过程中出错，没有详细研究）<br>    pip install xxx.whl</p>
-<p>3、网络安装Scrapy</p>
-<p>以管路员身份打开cmd &gt; 输入<br>    pip install scrapy</p>
-
+<p>用管理员身份打开cmd &gt; 输入</p>
+<pre><code>pip install wheel
+pip install pyWin32
+pip install lxml</code></pre><p>2、本地安装Twisted（网络安装过程中出错，没有详细研究）</p>
+<pre><code>pip install xxx.whl</code></pre><p>3、网络安装Scrapy</p>
+<p>以管路员身份打开cmd &gt; 输入</p>
+<pre><code>pip install scrapy</code></pre>
       
     </div>
 
@@ -604,7 +612,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-25 20:22:05" itemprop="dateModified" datetime="2020-04-25T20:22:05+08:00">2020-04-25</time>
+                <time title="修改时间：2020-04-25 20:34:40" itemprop="dateModified" datetime="2020-04-25T20:34:40+08:00">2020-04-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -697,7 +705,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-25 20:32:17" itemprop="dateModified" datetime="2020-04-25T20:32:17+08:00">2020-04-25</time>
+                <time title="修改时间：2020-04-25 20:46:37" itemprop="dateModified" datetime="2020-04-25T20:46:37+08:00">2020-04-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -739,11 +747,11 @@
 
       
           <p>假设你的移动硬盘在windows下显示为 F:\</p>
-<p>1.新建文件夹f<br>    sudo mkdir /mnt/f</p>
-<p>2.挂载盘符f<br>    sudo mount -t drvfs F: /mnt/f</p>
-<p>3.大功告成。进入/mnt/f即可与windows下一摸一样。</p>
-<p>4.弹出移动硬盘，这样才能在windows下正常弹出，否则是会一直占用的。<br>    sudo umount /mnt/f</p>
-
+<p>1.新建文件夹f</p>
+<pre><code>sudo mkdir /mnt/f</code></pre><p>2.挂载盘符f</p>
+<pre><code>sudo mount -t drvfs F: /mnt/f</code></pre><p>3.大功告成。进入/mnt/f即可与windows下一摸一样。</p>
+<p>4.弹出移动硬盘，这样才能在windows下正常弹出，否则是会一直占用的。</p>
+<pre><code>sudo umount /mnt/f</code></pre>
       
     </div>
 
@@ -793,7 +801,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-25 20:31:09" itemprop="dateModified" datetime="2020-04-25T20:31:09+08:00">2020-04-25</time>
+                <time title="修改时间：2020-04-25 20:47:32" itemprop="dateModified" datetime="2020-04-25T20:47:32+08:00">2020-04-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -830,9 +838,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>安装Aria2<br>    opkg update<br>    opkg install aria2<br>    aria2c -v</p>
-<p>安装成功后会打印以下信息<br>    aria2 version 1.33.0</p>
-<pre><code>Copyright (C) 2006, 2017 Tatsuhiro Tsujikawa
+          <p>安装Aria2</p>
+<pre><code>opkg update
+opkg install aria2
+aria2c -v</code></pre><p>安装成功后会打印以下信息</p>
+<pre><code>aria2 version 1.33.0
+
+Copyright (C) 2006, 2017 Tatsuhiro Tsujikawa
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -857,16 +869,16 @@ System: Linux 4.14.24-qnap #1 SMP Fri Feb 14 09:52:34 CST 2020 x86_64
 
 Report bugs to https://github.com/aria2/aria2/issues
 Visit https://aria2.github.io/</code></pre><p>By default, Aria2 is configured to start as a daemon, download any content to /opt/var/aria2/torrents, listen RPC control port 6800, which can be accessed with Passw0rd token. You can change this settings in /opt/etc/aria2.conf if necessary.</p>
-<p>修改配置<br>    vim /opt/etc/aria2.conf</p>
-<p>配置文件说明</p>
+<p>修改配置</p>
+<pre><code>vim /opt/etc/aria2.conf</code></pre><p>配置文件说明</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">## 文件保存相关 ##</span><br><span class="line"> </span><br><span class="line"># 文件保存目录</span><br><span class="line">dir&#x3D;&#x2F;home&#x2F;naonao&#x2F;Downloads</span><br><span class="line"># 启用磁盘缓存, 0为禁用缓存, 需1.16以上版本, 默认:16M</span><br><span class="line">disk-cache&#x3D;32M</span><br><span class="line"># 断点续传</span><br><span class="line">continue&#x3D;true</span><br><span class="line"> </span><br><span class="line"># 文件预分配方式, 能有效降低磁盘碎片, 默认:prealloc</span><br><span class="line"># 预分配所需时间: none &lt; falloc ? trunc &lt; prealloc</span><br><span class="line"># falloc和trunc则需要文件系统和内核支持</span><br><span class="line"># NTFS建议使用falloc, EXT3&#x2F;4建议trunc, MAC 下需要注释此项</span><br><span class="line">file-allocation&#x3D;trunc</span><br><span class="line"> </span><br><span class="line">## 下载连接相关 ##</span><br><span class="line"> </span><br><span class="line"># 最大同时下载任务数, 运行时可修改, 默认:5</span><br><span class="line">#max-concurrent-downloads&#x3D;100</span><br><span class="line"># 同一服务器连接数, 添加时可指定, 默认:1</span><br><span class="line"># 官方的aria2最高设置为16, 如果需要设置任意数值请重新编译aria2</span><br><span class="line">max-connection-per-server&#x3D;256</span><br><span class="line"># 整体下载速度限制, 运行时可修改, 默认:0（不限制）</span><br><span class="line">#max-overall-download-limit&#x3D;0</span><br><span class="line"># 单个任务下载速度限制, 默认:0（不限制）</span><br><span class="line">#max-download-limit&#x3D;0</span><br><span class="line"># 整体上传速度限制, 运行时可修改, 默认:0（不限制）</span><br><span class="line">#max-overall-upload-limit&#x3D;0</span><br><span class="line"># 单个任务上传速度限制, 默认:0（不限制）</span><br><span class="line">#max-upload-limit&#x3D;0</span><br><span class="line"># 禁用IPv6, 默认:false</span><br><span class="line"># disable-ipv6&#x3D;true</span><br><span class="line"> </span><br><span class="line"># 最小文件分片大小, 添加时可指定, 取值范围1M -1024M, 默认:20M</span><br><span class="line"># 假定size&#x3D;10M, 文件为20MiB 则使用两个来源下载; 文件为15MiB 则使用一个来源下载</span><br><span class="line">min-split-size&#x3D;10M</span><br><span class="line"># 单个任务最大线程数, 添加时可指定, 默认:5</span><br><span class="line"># 建议同max-connection-per-server设置为相同值</span><br><span class="line">split&#x3D;256</span><br><span class="line"> </span><br><span class="line">## 进度保存相关 ##</span><br><span class="line"> </span><br><span class="line"># 从会话文件中读取下载任务</span><br><span class="line">input-file&#x3D;&#x2F;etc&#x2F;aria2&#x2F;aria2.session</span><br><span class="line"># 在Aria2退出时保存错误的、未完成的下载任务到会话文件</span><br><span class="line">save-session&#x3D;&#x2F;etc&#x2F;aria2&#x2F;aria2.session</span><br><span class="line"># 定时保存会话, 0为退出时才保存, 需1.16.1以上版本, 默认:0</span><br><span class="line">save-session-interval&#x3D;60</span><br><span class="line"> </span><br><span class="line">## RPC相关设置 ##</span><br><span class="line"> </span><br><span class="line"># 启用RPC, 默认:false</span><br><span class="line">enable-rpc&#x3D;true</span><br><span class="line"># 允许所有来源, 默认:false</span><br><span class="line">rpc-allow-origin-all&#x3D;true</span><br><span class="line"># 允许外部访问, 默认:false</span><br><span class="line">rpc-listen-all&#x3D;true</span><br><span class="line"># RPC端口, 仅当默认端口被占用时修改</span><br><span class="line"># rpc-listen-port&#x3D;6800</span><br><span class="line"># 设置的RPC授权令牌, v1.18.4新增功能, 取代 --rpc-user 和 --rpc-passwd 选项</span><br><span class="line">rpc-secret&#x3D;yourpassword</span><br><span class="line"># 启动SSL</span><br><span class="line"># rpc-secure&#x3D;true</span><br><span class="line"># 证书文件, 如果启用SSL则需要配置证书文件, 例如用https连接aria2</span><br><span class="line"># rpc-certificate&#x3D;</span><br><span class="line"># rpc-private-key&#x3D;</span><br><span class="line"> </span><br><span class="line">## BT&#x2F;PT下载相关 ##</span><br><span class="line"> </span><br><span class="line"># 当下载的是一个种子(以.torrent结尾)时, 自动开始BT任务, 默认:true</span><br><span class="line">follow-torrent&#x3D;true</span><br><span class="line"># 客户端伪装, PT需要</span><br><span class="line">peer-id-prefix&#x3D;-TR2770-</span><br><span class="line">user-agent&#x3D;Transmission&#x2F;2.77</span><br><span class="line"># 强制保存会话, 即使任务已经完成, 默认:false</span><br><span class="line"># 较新的版本开启后会在任务完成后依然保留.aria2文件</span><br><span class="line">#force-save&#x3D;false</span><br><span class="line"># 继续之前的BT任务时, 无需再次校验, 默认:false</span><br><span class="line">bt-seed-unverified&#x3D;true</span><br><span class="line"># 保存磁力链接元数据为种子文件(.torrent文件), 默认:false</span><br><span class="line"># bt-save-metadata&#x3D;true</span><br><span class="line"># 单个种子最大连接数, 默认:55 0表示不限制</span><br><span class="line">bt-max-peers&#x3D;0</span><br><span class="line"># 最小做种时间, 单位:分</span><br><span class="line"># seed-time &#x3D; 60</span><br><span class="line"># 分离做种任务</span><br><span class="line">bt-detach-seed-only&#x3D;true</span><br></pre></td></tr></table></figure>
 
-<p>启动<br>    /opt/etc/init.d/S81aria2 start</p>
-<p>关闭<br>    /opt/etc/init.d/S81aria2 stop</p>
-<p>下载文件<br>    aria2c xxx -d dir</p>
-<p>如果下载遇到以下错误：<br>    [SocketCore.cc:1015] errorCode=1 SSL/TLS handshake failure: unable to get local issuer certificate</p>
-<p>请安装以下软件：<br>    opkg install ca-certificates</p>
-<p>安装WebUI</p>
+<p>启动</p>
+<pre><code>/opt/etc/init.d/S81aria2 start</code></pre><p>关闭</p>
+<pre><code>/opt/etc/init.d/S81aria2 stop</code></pre><p>下载文件</p>
+<pre><code>aria2c xxx -d dir</code></pre><p>如果下载遇到以下错误：</p>
+<pre><code>[SocketCore.cc:1015] errorCode=1 SSL/TLS handshake failure: unable to get local issuer certificate</code></pre><p>请安装以下软件：</p>
+<pre><code>opkg install ca-certificates</code></pre><p>安装WebUI</p>
 <p><a href="http://ziahamza.github.io/webui-aria2/" target="_blank" rel="noopener">Aria2 WebUI by @ziahamza</a><br><a href="http://binux.github.io/yaaw/demo/" target="_blank" rel="noopener">YAAW WebUI by @binux</a></p>
 <p>下载Aria2 WebUI，然后解压到Web目录，文件夹命名为aria2，然后访问 <a href="http://xxx.xxx.xxx.xxx/aria2" target="_blank" rel="noopener">http://xxx.xxx.xxx.xxx/aria2</a> 即可</p>
 <p>参考 <a href="https://github.com/Entware/Entware-ng/wiki/Using-Aria2" target="_blank" rel="noopener">https://github.com/Entware/Entware-ng/wiki/Using-Aria2</a></p>
@@ -920,7 +932,7 @@ Visit https://aria2.github.io/</code></pre><p>By default, Aria2 is configured to
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-25 20:26:04" itemprop="dateModified" datetime="2020-04-25T20:26:04+08:00">2020-04-25</time>
+                <time title="修改时间：2020-04-25 20:46:54" itemprop="dateModified" datetime="2020-04-25T20:46:54+08:00">2020-04-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -938,7 +950,7 @@ Visit https://aria2.github.io/</code></pre><p>By default, Aria2 is configured to
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>331</span>
+              <span>332</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -958,10 +970,13 @@ Visit https://aria2.github.io/</code></pre><p>By default, Aria2 is configured to
 
       
           <h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><pre><code>opkg update
-opkg install git</code></pre><p>初始化git服务器端仓库,git仓库务必存放在非系统自带的目录下，否则系统重启之后数据会被抹掉<br>    cd /share/CACHEDEV1_DATA<br>    mkdir git<br>    cd git<br>    git init –bare python.git</p>
-<p>为NAS添加名称为git的用户和用户群，用于所有的git仓库访问。这里最好通过NAS自带的WEB界面创建用户和用户群，且git用户无需其他目录的权限。创建之后，通过WEB界面使用git用户进行登陆，这样NAS系统会自动设置好git用户的默认目录（这个目录是/share/homes/git）。</p>
-<p>更改git仓库目录的所有者为git用户。运行如下命令：<br>    chown -R git:git python.git</p>
-
+opkg install git</code></pre><p>初始化git服务器端仓库,git仓库务必存放在非系统自带的目录下，否则系统重启之后数据会被抹掉</p>
+<pre><code>cd /share/CACHEDEV1_DATA
+mkdir git
+cd git
+git init --bare python.git</code></pre><p>为NAS添加名称为git的用户和用户群，用于所有的git仓库访问。这里最好通过NAS自带的WEB界面创建用户和用户群，且git用户无需其他目录的权限。创建之后，通过WEB界面使用git用户进行登陆，这样NAS系统会自动设置好git用户的默认目录（这个目录是/share/homes/git）。</p>
+<p>更改git仓库目录的所有者为git用户。运行如下命令：</p>
+<pre><code>chown -R git:git python.git</code></pre>
       
     </div>
 
@@ -1011,7 +1026,7 @@ opkg install git</code></pre><p>初始化git服务器端仓库,git仓库务必�
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-25 20:27:20" itemprop="dateModified" datetime="2020-04-25T20:27:20+08:00">2020-04-25</time>
+                <time title="修改时间：2020-04-25 20:34:40" itemprop="dateModified" datetime="2020-04-25T20:34:40+08:00">2020-04-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1113,7 +1128,7 @@ opkg install git</code></pre><p>初始化git服务器端仓库,git仓库务必�
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-25 20:32:04" itemprop="dateModified" datetime="2020-04-25T20:32:04+08:00">2020-04-25</time>
+                <time title="修改时间：2020-04-25 20:44:20" itemprop="dateModified" datetime="2020-04-25T20:44:20+08:00">2020-04-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1156,15 +1171,33 @@ opkg install git</code></pre><p>初始化git服务器端仓库,git仓库务必�
       
           <h2 id="更换国内源"><a href="#更换国内源" class="headerlink" title="更换国内源"></a>更换国内源</h2><p>系统默认的apt源是国外的，下载软件速度慢，python的pip源也很慢，我们都换成阿里云的源。</p>
 <h3 id="更换apt源："><a href="#更换apt源：" class="headerlink" title="更换apt源："></a>更换apt源：</h3><pre><code>cd /etc/apt/sudo
-cp sources.list sources.list.bak &amp;&amp; sudo vim sources.list</code></pre><p>删除其中所有内容(dG)，替换成：<br>    deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic main restricted universe multiverse<br>    deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic-security main restricted universe multiverse<br>    deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic-updates main restricted universe multiverse<br>    deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic-proposed main restricted universe multiverse<br>    deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic-backports main restricted universe multiverse<br>    deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic main restricted universe multiverse<br>    deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic-security main restricted universe multiverse<br>    deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic-updates main restricted universe multiverse<br>    deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic-proposed main restricted universe multiverse<br>    deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic-backports main restricted universe multiverse</p>
-<p>然后更新<br>    sudo apt update<br>    sudo apt upgrade</p>
-<h3 id="更换pip源"><a href="#更换pip源" class="headerlink" title="更换pip源"></a>更换pip源</h3><p>安装pip并设置成默认<br>    sudo apt install python3-pip<br>    sudo ln -s /usr/bin/python3 /usr/bin/python<br>    sudo ln -s /usr/bin/pip3 /usr/bin/pip</p>
-<p>修改pip源：<br>    mkdir ~/.pip &amp;&amp; vi ~/.pip/pip.conf</p>
-<p>在打开的vim中输入下文并保存：<br>    [global]<br>    index-url = <a href="http://mirrors.aliyun.com/pypi/simple/" target="_blank" rel="noopener">http://mirrors.aliyun.com/pypi/simple/</a><br>    [install]<br>    trusted-host = mirrors.aliyun.com</p>
-<h3 id="准备Hexo环境"><a href="#准备Hexo环境" class="headerlink" title="准备Hexo环境"></a>准备Hexo环境</h3><p>安装nodejs及npm<br>    sudo apt update<br>    sudo apt install nodejs<br>    sudo apt install npm</p>
-<p>配置npm<br>    npm config set registry <a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a><br>    npm config get registry // 配置后可通过该命令来验证是否成功</p>
-<p>安装hexo<br>    npm install hexo-cli -g</p>
-
+cp sources.list sources.list.bak &amp;&amp; sudo vim sources.list</code></pre><p>删除其中所有内容(dG)，替换成：</p>
+<pre><code>deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</code></pre><p>然后更新</p>
+<pre><code>sudo apt update
+sudo apt upgrade</code></pre><h3 id="更换pip源"><a href="#更换pip源" class="headerlink" title="更换pip源"></a>更换pip源</h3><p>安装pip并设置成默认</p>
+<pre><code>sudo apt install python3-pip
+sudo ln -s /usr/bin/python3 /usr/bin/python
+sudo ln -s /usr/bin/pip3 /usr/bin/pip</code></pre><p>修改pip源：</p>
+<pre><code>mkdir ~/.pip &amp;&amp; vi ~/.pip/pip.conf</code></pre><p>在打开的vim中输入下文并保存：</p>
+<pre><code>[global]
+index-url = http://mirrors.aliyun.com/pypi/simple/
+[install]
+trusted-host = mirrors.aliyun.com</code></pre><h3 id="准备Hexo环境"><a href="#准备Hexo环境" class="headerlink" title="准备Hexo环境"></a>准备Hexo环境</h3><p>安装nodejs及npm</p>
+<pre><code>sudo apt update
+sudo apt install nodejs
+sudo apt install npm</code></pre><p>配置npm</p>
+<pre><code>npm config set registry https://registry.npm.taobao.org
+npm config get registry // 配置后可通过该命令来验证是否成功</code></pre><p>安装hexo</p>
+<pre><code>npm install hexo-cli -g</code></pre>
       
     </div>
 
